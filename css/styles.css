@@ -1,0 +1,505 @@
+/* Pomegranate Trade Dashboard - Custom Styles with Enhanced Visual Feedback */
+
+/* Global Styles & Variables */
+:root {
+    --primary-color: #4a1d1f;
+    --secondary-color: #8a3d41;
+    --success-color: #28a745;
+    --danger-color: #dc3545;
+    --warning-color: #ffc107;
+    --light-bg: #f4f8f2;
+    --card-bg: #ffffff;
+    --border-radius: 8px;
+    --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--light-bg);
+    color: #333;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+}
+
+.section-title {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+/* Navbar Styling */
+.navbar {
+    padding: 0.75rem 1rem;
+}
+
+.navbar-brand img {
+    width: 32px;
+    height: 32px;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: #333;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+}
+
+.navbar-light .navbar-nav .nav-link.active {
+    color: var(--primary-color);
+    border-bottom: 3px solid var(--primary-color);
+}
+
+.search-input {
+    border-radius: 20px 0 0 20px;
+    border: 1px solid #e0e0e0;
+    background-color: #f8f8f8;
+}
+
+.search-btn {
+    border-radius: 0 20px 20px 0;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+}
+
+.region-dropdown {
+    background-color: transparent;
+    border: 1px solid #e0e0e0;
+    border-radius: 20px;
+    color: #333;
+    font-weight: 500;
+}
+
+.subscribe-btn {
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 20px;
+    padding: 0.5rem 1.5rem;
+    font-weight: 500;
+}
+
+/* Summary Cards */
+.summary-strip {
+    margin-bottom: 1.5rem;
+}
+
+.summary-card {
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    border: none;
+    transition: transform 0.2s, box-shadow 0.3s;
+}
+
+.summary-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.summary-card .card-title {
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.status-up {
+    color: var(--success-color);
+    font-weight: 600;
+}
+
+.status-down {
+    color: var(--danger-color);
+    font-weight: 600;
+}
+
+.status-icon {
+    color: var(--success-color);
+}
+
+/* Data update animation */
+.data-updated {
+    animation: pulse-highlight 1s ease-in-out;
+}
+
+@keyframes pulse-highlight {
+    0% { background-color: transparent; }
+    50% { background-color: rgba(40, 167, 69, 0.1); }
+    100% { background-color: transparent; }
+}
+
+/* Status updating animation */
+.status-updating {
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+/* Overview Section */
+.overview-card {
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    border: none;
+    height: 100%;
+    background-color: var(--card-bg);
+    transition: transform 0.2s, box-shadow 0.3s;
+}
+
+.overview-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.overview-card .card-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.time-range-btn {
+    background-color: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 20px;
+    color: #333;
+    font-weight: 500;
+    padding: 0.4rem 1rem;
+    transition: background-color 0.2s;
+}
+
+.time-range-btn:hover {
+    background-color: #f8f8f8;
+}
+
+.progress {
+    height: 8px;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    background-color: var(--primary-color);
+    transition: width 0.6s ease;
+}
+
+.country-name {
+    font-weight: 500;
+    min-width: 50px;
+}
+
+.percentage {
+    font-weight: 500;
+    min-width: 40px;
+    text-align: right;
+}
+
+.growth-positive {
+    color: var(--success-color);
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.growth-negative {
+    color: var(--danger-color);
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.yoy-item {
+    margin-bottom: 0.5rem;
+    transition: background-color 0.2s;
+    padding: 0.25rem;
+    border-radius: 4px;
+}
+
+.yoy-item:hover {
+    background-color: rgba(0, 0, 0, 0.03);
+}
+
+.year {
+    font-weight: 500;
+    min-width: 40px;
+}
+
+.growth-value {
+    font-weight: 600;
+    min-width: 50px;
+}
+
+.sparkline {
+    width: 60px;
+    height: 20px;
+}
+
+.snapshot-item {
+    margin-bottom: 0.5rem;
+    transition: background-color 0.2s;
+    padding: 0.25rem;
+    border-radius: 4px;
+}
+
+.snapshot-item:hover {
+    background-color: rgba(0, 0, 0, 0.03);
+}
+
+.snapshot-label {
+    font-weight: 500;
+    color: #666;
+}
+
+.snapshot-value {
+    font-weight: 600;
+}
+
+/* Market Pulse Cards */
+.market-pulse-card {
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    border: none;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.market-pulse-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.market-pulse-card .card-img-top {
+    height: 180px;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.market-pulse-card:hover .card-img-top {
+    transform: scale(1.05);
+}
+
+.country-badge {
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    transition: background-color 0.3s;
+}
+
+.market-pulse-card:hover .country-badge {
+    background-color: var(--primary-color);
+}
+
+.card-date {
+    color: #666;
+    font-size: 0.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.market-pulse-card .card-title {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    line-height: 1.4;
+}
+
+.market-pulse-card .card-text {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.filter-btn {
+    background-color: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 20px;
+    color: #333;
+    font-weight: 500;
+    padding: 0.4rem 1rem;
+    transition: background-color 0.2s;
+}
+
+.filter-btn:hover {
+    background-color: #f8f8f8;
+}
+
+.view-all-btn {
+    background-color: var(--light-bg);
+    border: 1px solid #e0e0e0;
+    border-radius: 20px;
+    color: #333;
+    font-weight: 500;
+    padding: 0.4rem 1rem;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.view-all-btn:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* Trade Data Section */
+.form-check-input:checked {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.table {
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.table thead th {
+    background-color: var(--light-bg);
+    color: #666;
+    font-weight: 600;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 0.75rem;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.table tbody td {
+    padding: 0.75rem;
+    border-bottom: 1px solid #f0f0f0;
+    vertical-align: middle;
+    transition: background-color 0.2s;
+}
+
+.table tbody tr:hover {
+    background-color: rgba(0, 0, 0, 0.04);
+}
+
+/* Market Prices Table */
+.status-fresh {
+    color: var(--success-color);
+    font-weight: 500;
+}
+
+.status-old {
+    color: var(--warning-color);
+    font-weight: 500;
+}
+
+.status-updating {
+    color: var(--danger-color);
+    font-weight: 500;
+}
+
+.trend-up, .trend-down {
+    display: inline-block;
+    width: 60px;
+    height: 20px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.trend-up {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 30' width='60' height='20'%3E%3Cpath d='M0,20 Q25,5 50,15 T100,10' stroke='%2328a745' stroke-width='2' fill='none'/%3E%3C/svg%3E");
+}
+
+.trend-down {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 30' width='60' height='20'%3E%3Cpath d='M0,10 Q25,25 50,15 T100,20' stroke='%23dc3545' stroke-width='2' fill='none'/%3E%3C/svg%3E");
+}
+
+/* Seasonality Section */
+.peru-label {
+    color: #dc3545;
+    font-weight: 500;
+}
+
+.spain-label {
+    color: #fd7e14;
+    font-weight: 500;
+}
+
+.south-africa-label {
+    color: #0d6efd;
+    font-weight: 500;
+}
+
+/* Real-time data indicators */
+.real-time-indicator {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-right: 5px;
+    background-color: var(--success-color);
+    animation: pulse 1.5s infinite;
+}
+
+.last-updated {
+    font-size: 0.8rem;
+    color: #666;
+    margin-top: 0.5rem;
+    text-align: right;
+}
+
+/* Footer */
+footer {
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: 2rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+    .navbar-collapse {
+        margin-top: 1rem;
+    }
+    
+    .subscribe-btn, .region-dropdown {
+        margin-top: 0.5rem;
+    }
+    
+    .overview-card, .market-pulse-card {
+        margin-bottom: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 1.3rem;
+    }
+    
+    .table-responsive {
+        border-radius: var(--border-radius);
+        box-shadow: var(--box-shadow);
+    }
+    
+    .filter-btn, .time-range-btn, .view-all-btn {
+        font-size: 0.9rem;
+        padding: 0.3rem 0.8rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .navbar-brand img {
+        width: 28px;
+        height: 28px;
+    }
+    
+    .section-title {
+        font-size: 1.2rem;
+    }
+    
+    .summary-card .card-title {
+        font-size: 0.8rem;
+    }
+    
+    .overview-card .card-title {
+        font-size: 1rem;
+    }
+    
+    .market-pulse-card .card-img-top {
+        height: 150px;
+    }
+}
