@@ -727,26 +727,25 @@ footer {
     /* Market Prices Filters Row */
     #market-price-section .market-prices-filters {
         display: flex !important;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
+        flex-wrap: nowrap !important;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
         gap: 0.7rem;
         margin-bottom: 1rem;
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none; /* IE and Edge */
+        width: 100%;
+    }
+    #market-price-section .market-prices-filters::-webkit-scrollbar {
+        display: none; /* Chrome, Safari, Opera */
+        height: 0;
+        background: transparent;
     }
     #market-price-section .market-prices-filters .dropdown {
         flex: 1 1 0;
         min-width: 0;
-        width: 32%;
-    }
-    #market-price-section .market-prices-filters .filter-btn,
-    #market-price-section .market-prices-filters .time-range-btn {
-        width: 100%;
-        padding: 0.7rem 1rem;
-        border-radius: 10px;
-        background: #fff;
-        border: 1px solid #e0e0e0;
-        font-weight: 600;
-        text-align: left;
+        width: auto;
+        max-width: none;
     }
     /* Table responsiveness */
     #market-price-section .table-responsive {
@@ -825,5 +824,27 @@ footer {
         background: #fff;
         border: 1px solid #e0e0e0;
         font-weight: 600;
+    }
+    #market-price-section .market-prices-filters {
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        gap: 0.7rem;
+        margin-bottom: 1rem;
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none; /* IE and Edge */
+        width: 100%;
+    }
+    #market-price-section .market-prices-filters::-webkit-scrollbar {
+        display: none; /* Chrome, Safari, Opera */
+        height: 0;
+        background: transparent;
+    }
+    #market-price-section .market-prices-filters .dropdown {
+        flex: 1 1 0;
+        min-width: 0;
+        width: auto;
+        max-width: none;
     }
 }
