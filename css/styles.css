@@ -730,7 +730,7 @@ footer {
         flex-wrap: nowrap !important;
         overflow-x: auto;
         -webkit-overflow-scrolling: touch;
-        gap: 0.7rem;
+        gap: 1.2rem;
         margin-bottom: 1rem;
         scrollbar-width: none; /* Firefox */
         -ms-overflow-style: none; /* IE and Edge */
@@ -830,7 +830,7 @@ footer {
         flex-wrap: nowrap !important;
         overflow-x: auto;
         -webkit-overflow-scrolling: touch;
-        gap: 0.7rem;
+        gap: 1.2rem;
         margin-bottom: 1rem;
         scrollbar-width: none; /* Firefox */
         -ms-overflow-style: none; /* IE and Edge */
