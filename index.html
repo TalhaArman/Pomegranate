@@ -15,18 +15,33 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
         <div class="container-fluid">
+            <!-- Mobile Header Layout -->
+            <div class="d-flex w-100 align-items-center d-lg-none mobile-header-bar">
             <!-- Logo -->
-            <a class="navbar-brand" href="#">
-                <img src="img/pomegranate-icon.png" alt="Pomegranate Logo" width="30" height="30" class="d-inline-block align-text-top">
-            </a>
-            
-            <!-- Navbar Toggler for mobile -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
-                <span class="navbar-toggler-icon"></span>
+                <a class="navbar-brand p-0 me-2" href="#">
+                    <img src="img/pomegranate-icon.png" alt="Pomegranate Logo" width="30" height="30">
+                </a>
+                <div class="flex-grow-1"></div>
+                <!-- Region Dropdown -->
+                <div class="dropdown me-2">
+                    <button class="btn dropdown-toggle region-dropdown" type="button" id="regionDropdownMobile" data-bs-toggle="dropdown" aria-expanded="false">
+                        Region: <b>Global</b>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="regionDropdownMobile">
+                        <li><a class="dropdown-item" href="#">Global</a></li>
+                        <li><a class="dropdown-item" href="#">Americas</a></li>
+                        <li><a class="dropdown-item" href="#">Europe</a></li>
+                        <li><a class="dropdown-item" href="#">Asia</a></li>
+                        <li><a class="dropdown-item" href="#">Africa</a></li>
+                    </ul>
+                </div>
+                <!-- Hamburger Menu -->
+                <button class="btn p-0 ms-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+                    <span class="fa fa-bars fa-lg"></span>
             </button>
-            
-            <!-- Navbar Content -->
-            <div class="collapse navbar-collapse" id="navbarContent">
+            </div>
+            <!-- Desktop Navbar Content -->
+            <div class="collapse navbar-collapse d-none d-lg-flex" id="navbarContent">
                 <!-- Menu Items -->
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
@@ -45,18 +60,7 @@
                         <a class="nav-link" href="#market-pulse-section">Market Pulse</a>
                     </li>
                 </ul>
-                
-                <!-- Search Bar -->
-                <form class="d-flex me-2">
-                    <div class="input-group">
-                        <input class="form-control search-input" type="search" placeholder="Search here" aria-label="Search">
-                        <button class="btn search-btn" type="submit">
-                            <i class="fas fa-search"></i>
-                        </button>
-                    </div>
-                </form>
-                
-                <!-- Region Dropdown -->
+                <!-- Region Dropdown (desktop) -->
                 <div class="dropdown me-2">
                     <button class="btn dropdown-toggle region-dropdown" type="button" id="regionDropdown" data-bs-toggle="dropdown" aria-expanded="false">
                         Region: Global
@@ -69,17 +73,27 @@
                         <li><a class="dropdown-item" href="#">Africa</a></li>
                     </ul>
                 </div>
-                
                 <!-- Subscribe Button -->
                 <button class="btn subscribe-btn">Subscribe For Email</button>
             </div>
         </div>
     </nav>
+    <!-- Mobile Search Bar -->
+    <div class="container-fluid d-lg-none mt-2 mb-2">
+        <form class="w-100">
+            <div class="input-group">
+                <input class="form-control search-input" type="search" placeholder="Search here" aria-label="Search">
+                <button class="btn search-btn" type="submit">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </form>
+    </div>
 
     <!-- Main Content -->
     <div class="container-fluid mt-3">
         <!-- Top Summary Strip -->
-        <div class="row summary-strip">
+        <div class="row summary-strip summary-strip-scroll">
             <!-- Summary Cards - Repeated for each country -->
             <div class="col-md-4 col-lg-2 mb-3">
                 <div class="card summary-card">
@@ -140,7 +154,7 @@
 
         <!-- Overview Section -->
         <section id="overview-section" class="mt-4 mb-4">
-            <div class="d-flex justify-content-between align-items-center mb-3">
+            <div class="overview-header-row d-flex justify-content-between align-items-center mb-3">
                 <h2 class="section-title">Overview</h2>
                 <div class="dropdown">
                     <button class="btn dropdown-toggle time-range-btn" type="button" id="timeRangeDropdown" data-bs-toggle="dropdown" aria-expanded="false">
@@ -297,7 +311,7 @@
 
         <!-- Market Pulse Section -->
         <section id="market-pulse-section" class="mt-4 mb-4">
-            <div class="d-flex justify-content-between align-items-center mb-3">
+            <div class="market-pulse-controls d-flex justify-content-between align-items-center mb-3">
                 <h2 class="section-title">Market Pulse</h2>
                 <div class="d-flex">
                     <div class="dropdown me-2">
@@ -315,7 +329,7 @@
                 </div>
             </div>
 
-            <div class="row">
+            <div class="row market-pulse-scroll">
                 <!-- Market Pulse Card 1 -->
                 <div class="col-md-4 mb-3">
                     <div class="card market-pulse-card">
@@ -367,7 +381,7 @@
         <section id="trade-data-section" class="mt-4 mb-4">
             <h2 class="section-title mb-3">Trade Data</h2>
             
-            <div class="d-flex justify-content-end mb-3">
+            <div class="trade-data-filters d-flex justify-content-end mb-3">
                 <div class="form-check form-check-inline">
                     <input class="form-check-input" type="radio" name="tradeType" id="importRadio" checked>
                     <label class="form-check-label" for="importRadio">Import</label>
@@ -396,6 +410,11 @@
                         <li><a class="dropdown-item" href="#">Weekly</a></li>
                     </ul>
                 </div>
+            </div>
+
+            <div class="trade-data-legend d-flex justify-content-center align-items-center mb-3">
+                <span class="me-4"><span class="legend-dot legend-import"></span> Import</span>
+                <span><span class="legend-dot legend-export"></span> Export</span>
             </div>
 
             <!-- Trade Chart -->
@@ -501,7 +520,7 @@
         <section id="market-price-section" class="mt-4 mb-4">
             <h2 class="section-title mb-3">Market Prices</h2>
             
-            <div class="d-flex justify-content-end mb-3">
+            <div class="market-prices-filters d-flex justify-content-end mb-3">
                 <div class="dropdown me-2">
                     <button class="btn dropdown-toggle filter-btn" type="button" id="statusDropdown" data-bs-toggle="dropdown" aria-expanded="false">
                         Status: All
@@ -612,7 +631,7 @@
 
         <!-- Seasonality Section -->
         <section id="seasonality-section" class="mt-4 mb-4">
-            <div class="d-flex justify-content-between align-items-center mb-3">
+            <div class="seasonality-filters d-flex justify-content-between align-items-center mb-3">
                 <h2 class="section-title">Seasonality</h2>
                 <div class="d-flex">
                     <div class="form-check form-check-inline">
@@ -639,6 +658,12 @@
                         </ul>
                     </div>
                 </div>
+            </div>
+
+            <div class="seasonality-legend d-flex justify-content-center align-items-center mb-3">
+                <span class="me-4"><span class="legend-dot legend-peru"></span> Peru</span>
+                <span class="me-4"><span class="legend-dot legend-spain"></span> Spain</span>
+                <span><span class="legend-dot legend-south-africa"></span> South Africa</span>
             </div>
 
             <!-- Seasonality Chart -->
