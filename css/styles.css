@@ -735,6 +735,7 @@ footer {
         scrollbar-width: none; /* Firefox */
         -ms-overflow-style: none; /* IE and Edge */
         width: 100%;
+        padding-left: 0.5rem;
     }
     #market-price-section .market-prices-filters::-webkit-scrollbar {
         display: none; /* Chrome, Safari, Opera */
@@ -742,8 +743,8 @@ footer {
         background: transparent;
     }
     #market-price-section .market-prices-filters .dropdown {
-        flex: 1 1 auto;
-        min-width: 140px;
+        flex: 0 0 auto;
+        min-width: 120px;
         width: auto;
         max-width: none;
     }
