@@ -742,10 +742,15 @@ footer {
         background: transparent;
     }
     #market-price-section .market-prices-filters .dropdown {
-        flex: 1 1 0;
-        min-width: 120px;
+        flex: 1 1 auto;
+        min-width: 140px;
         width: auto;
         max-width: none;
+    }
+    #market-price-section .market-prices-filters .dropdown-toggle {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
     /* Table responsiveness */
     #market-price-section .table-responsive {
