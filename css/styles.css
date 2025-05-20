@@ -483,8 +483,8 @@ footer {
 
 @media (max-width: 576px) {
     .navbar-brand img {
-        width: 28px;
-        height: 28px;
+        width: 35px;
+        height: 35px;
     }
     
     .section-title {
