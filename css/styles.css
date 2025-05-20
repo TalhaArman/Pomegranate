@@ -512,13 +512,6 @@ footer {
         padding-bottom: 0.5rem;
         margin-left: -0.75rem;
         margin-right: -0.75rem;
-        scrollbar-width: none; /* Firefox */
-        -ms-overflow-style: none; /* IE and Edge */
-    }
-    .summary-strip-scroll::-webkit-scrollbar {
-        display: none; /* Chrome, Safari, Opera */
-        height: 0;
-        background: transparent;
     }
     .summary-strip-scroll > .col-md-4,
     .summary-strip-scroll > .col-lg-2,
@@ -723,37 +716,33 @@ footer {
         padding: 1rem 0.5rem 1.5rem 0.5rem;
         margin-left: 0.5rem;
         margin-right: 0.5rem;
-
     }
     /* Market Prices Filters Row */
     #market-price-section .market-prices-filters {
         display: flex !important;
-        flex-wrap: nowrap !important;
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-        gap: 0.5rem;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 0.7rem;
         margin-bottom: 1rem;
-        scrollbar-width: none; /* Firefox */
-        -ms-overflow-style: none; /* IE and Edge */
-        width: 100%;
-        padding-left: 0.5rem
-        justify-content: start !important;
-    }
-    #market-price-section .market-prices-filters::-webkit-scrollbar {
-        display: none; /* Chrome, Safari, Opera */
-        height: 0;
-        background: transparent;
+        overflow-x: auto;
+        min-width: fit-contetn;
     }
     #market-price-section .market-prices-filters .dropdown {
-        flex: 0 0 auto;
-        min-width: 120px;
-        width: auto;
-        max-width: none;
+        flex: 1 1 0;
+        min-width: fit-content;
+        width: 32%;
+
     }
-    #market-price-section .market-prices-filters .dropdown-toggle {
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
+    #market-price-section .market-prices-filters .filter-btn,
+    #market-price-section .market-prices-filters .time-range-btn {
+        width: 100%;
+        padding: 0.7rem 1rem;
+        border-radius: 10px;
+        background: #fff;
+        border: 1px solid #e0e0e0;
+        font-weight: 600;
+        text-align: left;
     }
     /* Table responsiveness */
     #market-price-section .table-responsive {
@@ -832,5 +821,12 @@ footer {
         background: #fff;
         border: 1px solid #e0e0e0;
         font-weight: 600;
+    }
+}
+
+@media (min-width: 992px) {
+    .navbar-brand img {
+        width: 40px !important;
+        height: 40px !important;
     }
 }
