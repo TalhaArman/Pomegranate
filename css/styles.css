@@ -723,6 +723,7 @@ footer {
         padding: 1rem 0.5rem 1.5rem 0.5rem;
         margin-left: 0.5rem;
         margin-right: 0.5rem;
+        justify-content: start;
     }
     /* Market Prices Filters Row */
     #market-price-section .market-prices-filters {
