@@ -516,9 +516,9 @@ footer {
     .summary-strip-scroll > .col-md-4,
     .summary-strip-scroll > .col-lg-2,
     .summary-strip-scroll > .mb-3 {
-        flex: 0 0 80vw;
-        max-width: 80vw;
-        min-width: 80vw;
+        flex: 0 0 50vw;
+        max-width: 50vw;
+        min-width: 50vw;
         padding-left: 0.5rem;
         padding-right: 0.5rem;
         margin-bottom: 0;
@@ -720,19 +720,24 @@ footer {
     /* Market Prices Filters Row */
     #market-price-section .market-prices-filters {
         display: flex !important;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
+        flex-wrap: wrap;
         gap: 0.7rem;
         margin-bottom: 1rem;
-        overflow-x: auto;
-        min-width: fit-contetn;
     }
     #market-price-section .market-prices-filters .dropdown {
+        min-width: 0;
+    }
+    #market-price-section .market-prices-filters .dropdown:nth-child(1),
+    #market-price-section .market-prices-filters .dropdown:nth-child(2) {
         flex: 1 1 0;
-        min-width: fit-content;
-        width: 32%;
-
+        width: 48%;
+        margin-bottom: 0;
+    }
+    #market-price-section .market-prices-filters .dropdown:nth-child(3) {
+        flex: 0 0 100%;
+        width: 100%;
+        margin-top: 0.7rem;
+        margin-bottom: 0;
     }
     #market-price-section .market-prices-filters .filter-btn,
     #market-price-section .market-prices-filters .time-range-btn {
@@ -811,6 +816,32 @@ footer {
         background: #0d6efd;
     }
     #seasonality-section .seasonality-filters .dropdown .dropdown-toggle.filter-btn {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        text-align: left;
+        padding: 0.7rem 1rem;
+        border-radius: 10px;
+        background: #fff;
+        border: 1px solid #e0e0e0;
+        font-weight: 600;
+    }
+    #market-price-section .market-prices-filters .dropdown-toggle.filter-btn,
+    #market-price-section .market-prices-filters .dropdown-toggle.time-range-btn {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        text-align: left;
+        padding: 0.7rem 1rem;
+        border-radius: 10px;
+        background: #fff;
+        border: 1px solid #e0e0e0;
+        font-weight: 600;
+    }
+    #trade-data-section .trade-data-filters .dropdown-toggle.filter-btn,
+    #trade-data-section .trade-data-filters .dropdown-toggle.time-range-btn {
         display: flex;
         justify-content: space-between;
         align-items: center;
