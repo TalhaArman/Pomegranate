@@ -673,7 +673,7 @@ footer {
     }
     #trade-data-section .trade-data-filters .dropdown {
         flex: 1 1 0;
-        min-width: 0;
+        min-width: max-content;
         width: 48%;
     }
     #trade-data-section .trade-data-filters .filter-btn,
