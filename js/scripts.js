@@ -1,4 +1,4 @@
-// Pomegranate Trade Dashboard 
+// Pomegranate Trade Dashboard - JavaScript with Real-time Data Simulation
 
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize all dropdowns
