@@ -109,6 +109,30 @@
         </form>
     </div>
 
+    <!-- Email Subscribe Modal -->
+    <div class="modal fade" id="subscribeModal" tabindex="-1" aria-labelledby="subscribeModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="subscribeModalLabel">Subscribe for Email Updates</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form id="subscribeForm">
+              <div class="mb-3">
+                <label for="subscribeEmail" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="subscribeEmail" placeholder="name@example.com" required>
+              </div>
+              <div id="subscribeSuccess" class="alert alert-success d-none" role="alert">
+                Thank you for subscribing!
+              </div>
+              <button type="submit" class="btn btn-dark w-100">Subscribe</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- Main Content -->
     <div class="container-lg main-content-container mt-3">
         <!-- Top Summary Strip -->
