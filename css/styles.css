@@ -74,8 +74,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .subscribe-btn {
-    background-color: var(--primary-color);
-    color: white;
+    background-color: #000 !important;
+    color: #fff !important;
     border-radius: 20px;
     padding: 0.5rem 1.5rem;
     font-weight: 500;
@@ -483,8 +483,8 @@ footer {
 
 @media (max-width: 576px) {
     .navbar-brand img {
-        width: 35px;
-        height: 35px;
+        width: 28px;
+        height: 28px;
     }
     
     .section-title {
@@ -853,11 +853,155 @@ footer {
         border: 1px solid #e0e0e0;
         font-weight: 600;
     }
+    .mobile-nav-menu {
+        position: fixed !important;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(255,255,255,0.98);
+        box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+        border-radius: 0;
+        z-index: 2000;
+        overflow-y: auto;
+        padding-top: 70px;
+    }
+    .mobile-nav-menu .nav-link {
+        color: #222;
+        font-size: 1.1rem;
+        padding: 0.9rem 0;
+        border-bottom: 1px solid #f0f0f0;
+    }
+    .mobile-nav-menu .nav-link:last-child {
+        border-bottom: none;
+    }
+    .mobile-nav-menu .subscribe-btn {
+        margin-top: 0.5rem;
+        font-size: 1.1rem;
+        border-radius: 24px;
+        padding: 0.7rem 2rem;
+    }
+    .mobile-menu-close {
+        z-index: 2100;
+        color: #222;
+        background: none;
+        border: none;
+        box-shadow: none;
+    }
+    .mobile-menu-close:focus {
+        outline: none;
+        box-shadow: none;
+    }
+    #trade-data-section .table-responsive {
+        border-radius: 12px;
+        background: #fff;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        margin-bottom: 0.5rem;
+        overflow-x: auto;
+    }
+    #trade-data-section .table {
+        font-size: 0.85rem;
+    }
+    #trade-data-section .table th,
+    #trade-data-section .table td {
+        padding: 0.4rem 0.3rem;
+        white-space: nowrap;
+    }
+    #trade-data-section .table thead th {
+        font-size: 0.9rem;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+    }
+    .seasonality-mobile-filters {
+        margin-bottom: 1rem;
+    }
+    .seasonality-filter-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        background: #fff;
+        border: 1.5px solid #e0e0e0;
+        border-radius: 16px;
+        font-weight: 600;
+        font-size: 1rem;
+        color: #222;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        padding: 0.6rem 0.2rem;
+        transition: background 0.2s, border 0.2s;
+    }
+    .seasonality-filter-btn.active, .seasonality-filter-btn:active, .seasonality-filter-btn:focus {
+        background: #f4f4f4;
+        border: 2px solid #000;
+        color: #000;
+        outline: none;
+    }
+    .seasonality-filter-btn .legend-dot {
+        margin-right: 0.4em;
+    }
 }
 
 @media (min-width: 992px) {
     .navbar-brand img {
         width: 40px !important;
         height: 40px !important;
+    }
+}
+
+/* Headings and labels to black */
+.section-title,
+.overview-card .card-title,
+.market-pulse-card .card-title,
+.yoy-item .year,
+.yoy-item .growth-value,
+.snapshot-label,
+.snapshot-value,
+#trade-data-section .section-title,
+#market-price-section .section-title,
+#seasonality-section .section-title,
+.peru-label,
+.spain-label,
+.south-africa-label {
+    color: #000 !important;
+}
+
+/* Consistent card corner radius */
+.market-pulse-card,
+#market-price-section .table-responsive,
+#seasonality-section .seasonality-legend,
+#trade-data-section .trade-data-legend,
+#market-price-section,
+#seasonality-section,
+#overview-section,
+#trade-data-section {
+    border-radius: var(--border-radius) !important;
+}
+
+.market-pulse-card,
+#market-price-section .table-responsive,
+#seasonality-section .seasonality-legend,
+#trade-data-section .trade-data-legend {
+    border-radius: var(--border-radius) !important;
+    overflow: hidden;
+}
+
+.main-content-container {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+@media (max-width: 992px) {
+    .main-content-container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
+@media (max-width: 576px) {
+    .main-content-container {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
     }
 }
