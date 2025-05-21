@@ -1,4 +1,4 @@
-// Pomegranate Trade Dashboard - JavaScript with Real-time Data Simulation
+// Pomegranate Trade Dashboard 
 
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize all dropdowns
@@ -281,6 +281,8 @@ function initializeTradeChart() {
     const importData = generateSeasonalData(10, 15, 0.3);
     const exportData = generateSeasonalData(8, 12, 0.25);
     
+    const isMobile = window.innerWidth <= 576;
+    
     window.tradeChart = new Chart(ctx, {
         type: 'line',
         data: {
@@ -291,7 +293,7 @@ function initializeTradeChart() {
                     data: importData,
                     borderColor: '#dc3545',
                     backgroundColor: 'rgba(220, 53, 69, 0.1)',
-                    borderWidth: 2,
+                    borderWidth: 3,
                     tension: 0.4,
                     fill: true
                 },
@@ -300,7 +302,7 @@ function initializeTradeChart() {
                     data: exportData,
                     borderColor: '#28a745',
                     backgroundColor: 'rgba(40, 167, 69, 0.1)',
-                    borderWidth: 2,
+                    borderWidth: 3,
                     tension: 0.4,
                     fill: true
                 }
@@ -309,6 +311,14 @@ function initializeTradeChart() {
         options: {
             responsive: true,
             maintainAspectRatio: false,
+            layout: {
+                padding: {
+                    left: 10,
+                    right: 10,
+                    top: 10,
+                    bottom: 24 // extra space for x-axis labels
+                }
+            },
             scales: {
                 y: {
                     beginAtZero: true,
@@ -318,12 +328,22 @@ function initializeTradeChart() {
                     ticks: {
                         callback: function(value) {
                             return '$' + value + 'M';
+                        },
+                        font: {
+                            size: isMobile ? 10 : 12
                         }
                     }
                 },
                 x: {
                     grid: {
                         display: false
+                    },
+                    ticks: {
+                        font: {
+                            size: isMobile ? 10 : 12
+                        },
+                        maxRotation: isMobile ? 45 : 0,
+                        minRotation: isMobile ? 45 : 0
                     }
                 }
             },
@@ -677,3 +697,49 @@ if (searchInput) {
         });
     });
 }
+
+document.querySelectorAll('.mobile-nav-menu .nav-link').forEach(link => {
+  link.addEventListener('click', function(e) {
+    // Only handle anchor links
+    const href = this.getAttribute('href');
+    if (href && href.startsWith('#')) {
+      e.preventDefault();
+      const menu = document.getElementById('mobileNavMenu');
+      if (menu.classList.contains('show')) {
+        const collapse = bootstrap.Collapse.getOrCreateInstance(menu);
+        collapse.hide();
+        // Wait for collapse animation (Bootstrap default is 350ms)
+        setTimeout(() => {
+          const target = document.querySelector(href);
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }, 400);
+      } else {
+        // If menu already closed, just scroll
+        const target = document.querySelector(href);
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
+    }
+  });
+});
+
+// Seasonality mobile filter buttons toggle
+if (window.innerWidth <= 576) {
+  document.querySelectorAll('.seasonality-filter-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+      const country = this.getAttribute('data-country');
+      const checkbox = document.getElementById(
+        country === 'Peru' ? 'peruCheck' : country === 'Spain' ? 'spainCheck' : 'southAfricaCheck'
+      );
+      if (checkbox) {
+        checkbox.checked = !checkbox.checked;
+        checkbox.dispatchEvent(new Event('change'));
+      }
+      this.classList.toggle('active');
+    });
+  });
+}
+
