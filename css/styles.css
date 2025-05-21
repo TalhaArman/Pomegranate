@@ -1009,3 +1009,15 @@ footer {
         padding-right: 0.5rem;
     }
 }
+
+/* Ensure Bootstrap modal appears above the mobile menu */
+.modal-backdrop {
+    z-index: 3000 !important;
+}
+.modal {
+    z-index: 3010 !important;
+}
+body.modal-open .mobile-nav-menu {
+    display: none !important;
+    pointer-events: none !important;
+}
