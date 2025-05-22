@@ -1,3 +1,5 @@
+@import url('https://fonts.cdnfonts.com/css/uber-move');
+
 /* Pomegranate Trade Dashboard - Custom Styles with Enhanced Visual Feedback */
 
 /* Global Styles & Variables */
@@ -11,7 +13,7 @@
     --card-bg: #ffffff;
     --border-radius: 8px;
     --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --font-family: 'Uber Move', 'UberMove', Arial, Helvetica, sans-serif;
 }
 
 body {
