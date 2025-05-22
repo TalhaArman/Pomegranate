@@ -15,7 +15,7 @@
 
 /* Global Styles & Variables */
 :root {
-    --primary-color: #4a1d1f;
+    --primary-color: black;
     --secondary-color: #8a3d41;
     --success-color: #28a745;
     --danger-color: #dc3545;
@@ -961,6 +961,9 @@ footer {
     .seasonality-filter-btn .legend-dot {
         margin-right: 0.2em;
     }
+}
+.section-title {
+    align-self: flex-start;
 }
 
 @media (min-width: 992px) {
