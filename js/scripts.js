@@ -1,1141 +1,851 @@
-@font-face {
-    font-family: 'Uber Move';
-    src: url('../fonts/UberMoveMedium.otf') format('opentype');
-    font-weight: 500;
-    font-style: normal;
-}
-@font-face {
-    font-family: 'Uber Move';
-    src: url('../fonts/UberMoveBold.otf') format('opentype');
-    font-weight: 700;
-    font-style: normal;
-}
-
-/* Pomegranate Trade Dashboard - Custom Styles with Enhanced Visual Feedback */
-
-/* Global Styles & Variables */
-:root {
-    --primary-color: black;
-    --secondary-color: #8a3d41;
-    --success-color: #28a745;
-    --danger-color: #dc3545;
-    --warning-color: #ffc107;
-    --light-bg: #f4f8f2;
-    --card-bg: #ffffff;
-    --border-radius: 8px;
-    --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    --font-family: 'Uber Move', sans-serif;
-}
-
-body {
-    font-family: var(--font-family);
-    background-color: var(--light-bg);
-    color: #333;
-}
-
-/* Typography */
-h1, h2, h3, h4, h5, h6 {
-    font-weight: 600;
-}
-
-.section-title {
-    font-size: 1.5rem;
-    color: var(--primary-color);
-    margin-bottom: 1rem;
-}
-
-/* Navbar Styling */
-.navbar {
-    padding: 0.75rem 1rem;
-}
-
-.navbar-brand img {
-    width: 56px !important;
-    height: 56px !important;
-}
-
-.navbar-light .navbar-nav .nav-link {
-    color: #333;
-    font-weight: 500;
-    padding: 0.5rem 1rem;
-}
-
-.navbar-light .navbar-nav .nav-link.active {
-    color: var(--primary-color);
-    border-bottom: 3px solid var(--primary-color);
-}
-
-.search-input {
-    border-radius: 20px 0 0 20px;
-    border: 1px solid #e0e0e0;
-    background-color: #f8f8f8;
-}
-
-.search-btn {
-    border-radius: 0 20px 20px 0;
-    background-color: var(--primary-color);
-    color: white;
-    border: none;
-}
-
-.region-dropdown {
-    background-color: transparent;
-    border: 1px solid #e0e0e0;
-    border-radius: 20px;
-    color: #333;
-    font-weight: 500;
-}
-
-.subscribe-btn {
-    background-color: #000 !important;
-    color: #fff !important;
-    border-radius: 20px;
-    padding: 0.5rem 1.5rem;
-    font-weight: 500;
-}
-
-/* Summary Cards */
-.summary-strip {
-    margin-bottom: 1.5rem;
-}
-
-.summary-card {
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
-    border: none;
-    transition: transform 0.2s, box-shadow 0.3s;
-}
-
-.summary-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-}
-
-.summary-card .card-title {
-    font-size: 0.9rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-}
-
-.status-up {
-    color: var(--success-color);
-    font-weight: 600;
-}
-
-.status-down {
-    color: var(--danger-color);
-    font-weight: 600;
-}
-
-.status-icon {
-    color: var(--success-color);
-}
-
-/* Data update animation */
-.data-updated {
-    animation: pulse-highlight 1s ease-in-out;
-}
-
-@keyframes pulse-highlight {
-    0% { background-color: transparent; }
-    50% { background-color: rgba(40, 167, 69, 0.1); }
-    100% { background-color: transparent; }
-}
-
-/* Status updating animation */
-.status-updating {
-    animation: pulse 1.5s infinite;
-}
-
-@keyframes pulse {
-    0% { opacity: 1; }
-    50% { opacity: 0.5; }
-    100% { opacity: 1; }
-}
-/* Border Radius Setting */
-.country-badge{
-    border-radius: var(--border-radius) !important;   
-}
-input.form-control.search-input {
-    border: none;
-    background: none;
-}
-button.btn.search-btn {
-    background: black !important;
-}
-button,.input-group{
-    border-radius: var(--border-radius) !important;
-    box-shadow: var(--box-shadow) !important;
-    border: none !important;
-    height: 100% !important;
-    background-color: var(--card-bg) !important;
-    transition: transform 0.2s, box-shadow 0.3s !important;
-}
-/* Overview Section */
-.overview-card{
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
-    border: none;
-    height: 100%;
-    background-color: var(--card-bg);
-    transition: transform 0.2s, box-shadow 0.3s;
-}
-
-.overview-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-}
-
-.overview-card .card-title {
-    font-size: 1.1rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
-    color: var(--primary-color);
-}
-
-.time-range-btn {
-    background-color: white;
-    border: 1px solid #e0e0e0;
-    border-radius: 20px;
-    color: #333;
-    font-weight: 500;
-    padding: 0.4rem 1rem;
-    transition: background-color 0.2s;
-}
-
-.time-range-btn:hover {
-    background-color: #f8f8f8;
-}
-
-.progress {
-    height: 8px;
-    border-radius: 4px;
-    overflow: hidden;
-}
-
-.progress-bar {
-    background-color: var(--primary-color);
-    transition: width 0.6s ease;
-}
-
-.country-name {
-    font-weight: 500;
-    min-width: 50px;
-}
-
-.percentage {
-    font-weight: 500;
-    min-width: 40px;
-    text-align: right;
-}
-
-.growth-positive {
-    color: var(--success-color);
-    font-weight: 600;
-    transition: color 0.3s;
-}
-
-.growth-negative {
-    color: var(--danger-color);
-    font-weight: 600;
-    transition: color 0.3s;
-}
-
-.yoy-item {
-    margin-bottom: 0.5rem;
-    transition: background-color 0.2s;
-    padding: 0.25rem;
-    border-radius: 4px;
-}
-
-.yoy-item:hover {
-    background-color: rgba(0, 0, 0, 0.03);
-}
-
-.year {
-    font-weight: 500;
-    min-width: 40px;
-}
-
-.growth-value {
-    font-weight: 600;
-    min-width: 50px;
-}
-
-.sparkline {
-    width: 60px;
-    height: 20px;
-}
-
-.snapshot-item {
-    margin-bottom: 0.5rem;
-    transition: background-color 0.2s;
-    padding: 0.25rem;
-    border-radius: 4px;
-}
-
-.snapshot-item:hover {
-    background-color: rgba(0, 0, 0, 0.03);
-}
-
-.snapshot-label {
-    font-weight: 500;
-    color: #666;
-}
-
-.snapshot-value {
-    font-weight: 600;
-}
-
-/* Market Pulse Cards */
-.market-pulse-card {
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
-    border: none;
-    overflow: hidden;
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.market-pulse-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-}
-
-.market-pulse-card .card-img-top {
-    height: 180px;
-    object-fit: cover;
-    transition: transform 0.5s;
-}
-
-.market-pulse-card:hover .card-img-top {
-    transform: scale(1.05);
-}
-
-.country-badge {
-    background-color: rgba(0, 0, 0, 0.6);
-    color: white;
-    padding: 0.25rem 0.75rem;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    transition: background-color 0.3s;
-}
-
-.market-pulse-card:hover .country-badge {
-    background-color: var(--primary-color);
-}
-
-.card-date {
-    color: #666;
-    font-size: 0.8rem;
-    margin-bottom: 0.5rem;
-}
-
-.market-pulse-card .card-title {
-    font-size: 1rem;
-    font-weight: 600;
-    margin-bottom: 0.75rem;
-    line-height: 1.4;
-}
-
-.market-pulse-card .card-text {
-    font-size: 0.9rem;
-    color: #666;
-}
-
-.filter-btn {
-    background-color: white;
-    border: 1px solid #e0e0e0;
-    border-radius: 20px;
-    color: #333;
-    font-weight: 500;
-    padding: 0.4rem 1rem;
-    transition: background-color 0.2s;
-}
-
-.filter-btn:hover {
-    background-color: #f8f8f8;
-}
-
-.view-all-btn {
-    background-color: var(--light-bg);
-    border: 1px solid #e0e0e0;
-    border-radius: 20px;
-    color: #333;
-    font-weight: 500;
-    padding: 0.4rem 1rem;
-    transition: background-color 0.2s, color 0.2s;
-}
-
-
-
-/* Trade Data Section */
-.form-check-input:checked {
-    background-color: var(--primary-color);
-    border-color: var(--primary-color);
-}
-
-.table {
-    border-collapse: separate;
-    border-spacing: 0;
-}
-
-.table thead th {
-    background-color: var(--light-bg);
-    color: #666;
-    font-weight: 600;
-    border-bottom: 1px solid #e0e0e0;
-    padding: 0.75rem;
-    position: sticky;
-    top: 0;
-    z-index: 10;
-}
-
-.table tbody td {
-    padding: 0.75rem;
-    border-bottom: 1px solid #f0f0f0;
-    vertical-align: middle;
-    transition: background-color 0.2s;
-}
-
-.table tbody tr:hover {
-    background-color: rgba(0, 0, 0, 0.04);
-}
-
-/* Market Prices Table */
-.status-fresh {
-    color: var(--success-color);
-    font-weight: 500;
-}
-
-.status-old {
-    color: var(--warning-color);
-    font-weight: 500;
-}
-
-.status-updating {
-    color: var(--danger-color);
-    font-weight: 500;
-}
-
-.trend-up, .trend-down {
-    display: inline-block;
-    width: 60px;
-    height: 20px;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-}
-
-.trend-up {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 30' width='60' height='20'%3E%3Cpath d='M0,20 Q25,5 50,15 T100,10' stroke='%2328a745' stroke-width='2' fill='none'/%3E%3C/svg%3E");
-}
-
-.trend-down {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 30' width='60' height='20'%3E%3Cpath d='M0,10 Q25,25 50,15 T100,20' stroke='%23dc3545' stroke-width='2' fill='none'/%3E%3C/svg%3E");
-}
-
-/* Seasonality Section */
-.peru-label {
-    color: #dc3545;
-    font-weight: 500;
-}
-
-.spain-label {
-    color: #fd7e14;
-    font-weight: 500;
-}
-
-.south-africa-label {
-    color: #0d6efd;
-    font-weight: 500;
-}
-
-/* Real-time data indicators */
-.real-time-indicator {
-    display: inline-block;
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    margin-right: 5px;
-    background-color: var(--success-color);
-    animation: pulse 1.5s infinite;
-}
-
-.last-updated {
-    font-size: 0.8rem;
-    color: #666;
-    margin-top: 0.5rem;
-    text-align: right;
-}
-
-/* Footer */
-footer {
-    font-size: 0.9rem;
-    color: #666;
-    margin-top: 2rem;
-}
-
-/* Responsive Adjustments */
-@media (max-width: 992px) {
-    .navbar-collapse {
-        margin-top: 1rem;
+// Pomegranate Trade Dashboard - JavaScript with Real-time Data Simulation
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize all dropdowns
+    initializeDropdowns();
+    
+    // Initialize charts
+    initializeTradeChart();
+    initializeSeasonalityChart();
+    
+    // Initialize sparklines
+    initializeSparklines();
+    
+    // Start real-time data simulation
+    startRealTimeDataSimulation();
+    
+    // Auto-scroll summary cards on mobile
+    autoScrollSummaryStrip();
+});
+
+// Dropdown functionality
+function initializeDropdowns() {
+    // Bootstrap dropdowns are automatically initialized with Bootstrap's JS
+    
+    // Add event listeners for dropdown items
+    const dropdownItems = document.querySelectorAll('.dropdown-item');
+    dropdownItems.forEach(item => {
+        item.addEventListener('click', function(e) {
+            e.preventDefault();
+            const dropdownButton = this.closest('.dropdown').querySelector('.dropdown-toggle');
+            const buttonText = dropdownButton.textContent.split(':')[0];
+            dropdownButton.textContent = `${buttonText}: ${this.textContent.trim()}`;
+            
+            // Trigger data refresh when filters change
+            refreshDashboardData();
+        });
+    });
+}
+
+// Real-time data simulation
+function startRealTimeDataSimulation() {
+    // Initial data load
+    refreshDashboardData();
+    
+    // Set up periodic updates (every 30 seconds)
+    setInterval(function() {
+        refreshDashboardData();
+    }, 30000);
+    
+    // Set up more frequent status updates (every 10 seconds)
+    setInterval(function() {
+        updateStatuses();
+    }, 10000);
+}
+
+// Refresh all dashboard data
+function refreshDashboardData() {
+    updateSummaryCards();
+    updateTradeData();
+    updateMarketPrices();
+    updateTradeChart();
+    updateSeasonalityChart();
+}
+
+// Generate simulated data based on current date/time
+function generateSimulatedData() {
+    const now = new Date();
+    const hour = now.getHours();
+    const day = now.getDay(); // 0 = Sunday, 6 = Saturday
+    const date = now.getDate();
+    const month = now.getMonth(); // 0 = January, 11 = December
+    
+    // Base values for different countries
+    const baseValues = {
+        'Peru': 12.45,
+        'Spain': 14.20,
+        'South Africa': 11.80
+    };
+    
+    // Seasonal factors (higher in winter months for northern hemisphere)
+    const seasonalFactor = (month >= 9 || month <= 2) ? 1.2 : 0.9;
+    
+    // Day of week factor (lower on weekends)
+    const dayFactor = (day === 0 || day === 6) ? 0.95 : 1.05;
+    
+    // Time of day factor (higher during business hours)
+    const timeFactor = (hour >= 9 && hour <= 17) ? 1.1 : 0.95;
+    
+    // Random fluctuation factor
+    const fluctuation = () => 0.95 + Math.random() * 0.1;
+    
+    // Calculate current values with all factors
+    const currentValues = {};
+    for (const country in baseValues) {
+        currentValues[country] = baseValues[country] * seasonalFactor * dayFactor * timeFactor * fluctuation();
     }
     
-    .subscribe-btn, .region-dropdown {
-        margin-top: 0.5rem;
+    // Calculate percentage changes (compared to "previous" values)
+    const percentageChanges = {};
+    for (const country in baseValues) {
+        // Simulate previous value (with less volatility)
+        const prevValue = baseValues[country] * seasonalFactor * (dayFactor * 0.99) * (timeFactor * 0.99) * (0.97 + Math.random() * 0.06);
+        percentageChanges[country] = ((currentValues[country] - prevValue) / prevValue) * 100;
     }
     
-    .overview-card, .market-pulse-card {
-        margin-bottom: 1rem;
+    // Generate trade volumes based on current values
+    const tradeVolumes = {};
+    for (const country in baseValues) {
+        tradeVolumes[country] = Math.round(currentValues[country] * 1000 * (0.9 + Math.random() * 0.2));
     }
+    
+    // Generate market status based on time
+    const marketStatus = {};
+    for (const country in baseValues) {
+        // Fresh during business hours, otherwise older
+        if (hour >= 9 && hour <= 17) {
+            marketStatus[country] = 'fresh';
+        } else if (hour >= 6 && hour <= 20) {
+            marketStatus[country] = 'old';
+        } else {
+            marketStatus[country] = 'updating';
+        }
+    }
+    
+    // Last update timestamps
+    const lastUpdate = {};
+    for (const country in baseValues) {
+        if (marketStatus[country] === 'fresh') {
+            lastUpdate[country] = formatDate(now);
+        } else if (marketStatus[country] === 'old') {
+            const oldDate = new Date(now);
+            oldDate.setDate(oldDate.getDate() - 3);
+            lastUpdate[country] = formatDate(oldDate);
+        } else {
+            lastUpdate[country] = '--';
+        }
+    }
+    
+    return {
+        values: currentValues,
+        percentages: percentageChanges,
+        volumes: tradeVolumes,
+        status: marketStatus,
+        lastUpdate: lastUpdate,
+        timestamp: now
+    };
 }
 
-@media (max-width: 768px) {
-    .section-title {
-        font-size: 1.3rem;
-    }
-    
-    .table-responsive {
-        border-radius: var(--border-radius);
-        box-shadow: var(--box-shadow);
-    }
-    
-    .filter-btn, .time-range-btn, .view-all-btn {
-        font-size: 0.9rem;
-        padding: 0.3rem 0.8rem;
-    }
+// Format date as DD MMM YYYY
+function formatDate(date) {
+    const options = { day: '2-digit', month: 'short', year: 'numeric' };
+    return date.toLocaleDateString('en-US', options).toUpperCase();
 }
 
-@media (max-width: 576px) {
-    .navbar-brand img {
-        width: 28px;
-        height: 28px;
-    }
+// Update summary cards with simulated data
+function updateSummaryCards() {
+    const data = generateSimulatedData();
+    const summaryCards = document.querySelectorAll('.summary-card');
     
-    .section-title {
-        font-size: 1.2rem;
-    }
-    
-    .summary-card .card-title {
-        font-size: 0.8rem;
-    }
-    
-    .overview-card .card-title {
-        font-size: 1rem;
-    }
-    
-    .market-pulse-card .card-img-top {
-        height: 150px;
-    }
-    
-    .summary-strip-scroll {
-        display: flex !important;
-        flex-wrap: nowrap !important;
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-        gap: 1rem;
-        padding-bottom: 0.5rem;
-        margin-left: -0.75rem;
-        margin-right: -0.75rem;
-    }
-    .summary-strip-scroll > .col-md-4,
-    .summary-strip-scroll > .col-lg-2,
-    .summary-strip-scroll > .mb-3 {
-        flex: 0 0 50vw;
-        max-width: 50vw;
-        min-width: 50vw;
-        padding-left: 0.5rem;
-        padding-right: 0.5rem;
-        margin-bottom: 0;
-    }
-    .summary-card {
-        min-width: 100%;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-    }
-    #overview-section {
-        background: #fafafa;
-        border-radius: 18px;
-        padding: 1rem 0.5rem 1.5rem 0.5rem;
-        margin-left: 0.5rem;
-        margin-right: 0.5rem;
-    }
-    #overview-section .overview-header-row {
-        display: block !important;
-        margin-bottom: 1rem;
-    }
-    #overview-section .section-title {
-        display: block;
-        margin-bottom: 0.7rem;
-        margin-top: 0.5rem;
-        font-size: 1.4rem;
-        font-weight: 700;
-        width: 100%;
-    }
-    #overview-section .dropdown {
-        width: 100%;
-        margin-bottom: 0;
-    }
-    #overview-section .dropdown .dropdown-toggle.time-range-btn {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        width: 100%;
-        text-align: left;
-        padding: 0.7rem 1rem;
-        margin-bottom: 0;
-        border-radius: 10px;
-        background: #fff;
-        border: 1px solid #e0e0e0;
-        font-weight: 600;
-    }
-    .overview-card {
-        background: #fff;
-        border-radius: 16px;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-        margin-bottom: 1.1rem;
-        padding: 1.1rem 1rem 1rem 1rem;
-        width: 100%;
-        max-width: 100%;
-    }
-    .overview-card .card-title {
-        font-size: 1.1rem;
-        font-weight: 700;
-        margin-bottom: 0.7rem;
-    }
-    .exporter-item, .importer-item {
-        font-size: 1rem;
-        margin-bottom: 0.4rem;
-    }
-    .progress {
-        height: 7px;
-        background: #eee;
-    }
-    .progress-bar {
-        border-radius: 4px;
-    }
-    .percentage {
-        font-size: 1rem;
-        font-weight: 600;
-    }
-    .yoy-item {
-        font-size: 1rem;
-        margin-bottom: 0.3rem;
-    }
-    .growth-value {
-        font-size: 1rem;
-    }
-    /* Stack filter and view all button */
-    #market-pulse-section .market-pulse-controls {
-        flex-direction: column !important;
-        align-items: stretch !important;
-        gap: 0.7rem;
-    }
-    #market-pulse-section .market-pulse-controls .section-title {
-        margin-bottom: 0.7rem;
-    }
-    #market-pulse-section .market-pulse-controls .d-flex {
-        flex-direction: row !important;
-        justify-content: space-between;
-        align-items: center;
-        gap: 0.7rem;
-    }
-    #market-pulse-section .filter-btn {
-        flex: 1 1 0;
-        min-width: 0;
-        margin-bottom: 0;
-        width: auto;
-    }
-    #market-pulse-section .view-all-btn {
-        flex: 0 0 auto;
-        margin-bottom: 0;
-        white-space: nowrap;
-        margin-left: 0.7rem;
-    }
-    /* Horizontal scroll for cards */
-    .market-pulse-scroll {
-        display: flex !important;
-        flex-wrap: nowrap !important;
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-        gap: 1rem;
-        padding-bottom: 0.5rem;
-        padding-left: 0.5rem;
-        padding-right: 0.5rem;
-        margin-left: 0;
-        margin-right: 0;
-    }
-    .market-pulse-scroll > .col-md-4,
-    .market-pulse-scroll > .mb-3 {
-        flex: 0 0 85vw;
-        max-width: 85vw;
-        min-width: 85vw;
-        padding-left: 0;
-        padding-right: 0;
-        margin-bottom: 0;
-    }
-    .market-pulse-card {
-        min-width: 100%;
-        border-radius: 16px;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-    }
-    /* Trade Data Filters Row */
-    #trade-data-section .trade-data-filters {
-        display: flex !important;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        gap: 0.7rem;
-        margin-bottom: 1rem;
-    }
-    #trade-data-section .trade-data-filters .dropdown {
-        flex: 1 1 0;
-        min-width: max-content;
-        width: 48%;
-    }
-    #trade-data-section .trade-data-filters .filter-btn,
-    #trade-data-section .trade-data-filters .time-range-btn {
-        width: 100%;
-        padding: 0.7rem 1rem;
-        border-radius: 10px;
-        background: #fff;
-        border: 1px solid #e0e0e0;
-        font-weight: 600;
-        text-align: left;
-       
-    }   
-    /* Hide radio buttons for mobile (optional, if you want only dropdowns visible) */
-    #trade-data-section .trade-data-filters .form-check-inline {
-        display: none !important;
-    }
-    /* Trade Data Legend */
-    #trade-data-section .trade-data-legend {
-        background: #fff;
-        border-radius: 16px;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-        padding: 0.7rem 0.5rem;
-        margin-bottom: 1rem;
-        display: flex !important;
-        justify-content: center;
-        align-items: center;
-        gap: 2rem;
-    }
-    .legend-dot {
-        display: inline-block;
-        width: 14px;
-        height: 14px;
-        border-radius: 50%;
-        margin-right: 0.4em;
-        vertical-align: middle;
-    }
-    .legend-import {
-        background: #dc3545;
-    }
-    .legend-export {
-        background: #28a745;
-    }
-    /* Market Prices Section Container */
-    #market-price-section {
-        background: #fafafa;
-        border-radius: 18px;
-        padding: 1rem 0.5rem 1.5rem 0.5rem;
-        margin-left: 0.5rem;
-        margin-right: 0.5rem;
-    }
-    /* Market Prices Filters Row */
-    #market-price-section .market-prices-filters {
-        display: flex !important;
-        flex-wrap: wrap;
-        gap: 0.7rem;
-        margin-bottom: 1rem;
-    }
-    #market-price-section .market-prices-filters .dropdown {
-        min-width: 0;
-    }
-    #market-price-section .market-prices-filters .dropdown:nth-child(1),
-    #market-price-section .market-prices-filters .dropdown:nth-child(2) {
-        flex: 1 1 0;
-        width: 48%;
-        margin-bottom: 0;
-    }
-    #market-price-section .market-prices-filters .dropdown:nth-child(3) {
-        flex: 0 0 100%;
-        width: 100%;
-        margin-top: 0.7rem;
-        margin-bottom: 0;
-    }
-    #market-price-section .market-prices-filters .filter-btn,
-    #market-price-section .market-prices-filters .time-range-btn {
-        width: 100%;
-        padding: 0.7rem 1rem;
-        border-radius: 10px;
-        background: #fff;
-        border: 1px solid #e0e0e0;
-        font-weight: 600;
-        text-align: left;
-    }
-    /* Table responsiveness */
-    #market-price-section .table-responsive {
-        border-radius: 12px;
-        background: #fff;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-        margin-bottom: 0.5rem;
-    }
-    /* Seasonality Section Container */
-    #seasonality-section {
-        background: #fafafa;
-        border-radius: 18px;
-        padding: 1rem 0.5rem 1.5rem 0.5rem;
-        margin-left: 0.5rem;
-        margin-right: 0.5rem;
-    }
-    /* Seasonality Filters Row */
-    #seasonality-section .seasonality-filters {
-        flex-direction: column !important;
-        align-items: stretch !important;
-        gap: 0.7rem;
-        margin-bottom: 1rem;
-    }
-    #seasonality-section .seasonality-filters .dropdown {
-        width: 100% !important;
-        min-width: 0 !important;
-        margin: 0 !important;
-        padding: 0 !important;
-    }
-    #seasonality-section .seasonality-filters .dropdown .dropdown-toggle.filter-btn {
-        width: 100% !important;
-        min-width: 0 !important;
-        box-sizing: border-box;
-    }
-     .d-flex {
-        align-items: center !important;
-    }
-    /* Hide checkboxes for mobile (optional, if you want only legend visible) */
-    #seasonality-section .seasonality-filters .form-check-inline {
-        display: none !important;
-    }
-    /* Seasonality Legend */
-    #seasonality-section .seasonality-legend {
-        background: #fff;
-        border-radius: 16px;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-        padding: 0.7rem 0.5rem;
-        margin-bottom: 1rem;
-        display: flex !important;
-        justify-content: center;
-        align-items: center;
-        gap: 1.5rem;
-    }
-    .legend-dot {
-        display: inline-block;
-        width: 14px;
-        height: 14px;
-        border-radius: 50%;
-        margin-right: 0.4em;
-        vertical-align: middle;
-    }
-    .legend-peru {
-        background: #dc3545;
-    }
-    .legend-spain {
-        background: #fd7e14;
-    }
-    .legend-south-africa {
-        background: #0d6efd;
-    }
-    #seasonality-section .seasonality-filters .dropdown .dropdown-toggle.filter-btn {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        width: 100%;
-        text-align: left;
-        padding: 0.7rem 1rem;
-        border-radius: 10px;
-        background: #fff;
-        border: 1px solid #e0e0e0;
-        font-weight: 600;
-    }
-    #market-price-section .market-prices-filters .dropdown-toggle.filter-btn,
-    #market-price-section .market-prices-filters .dropdown-toggle.time-range-btn {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        width: 100%;
-        text-align: left;
-        padding: 0.7rem 1rem;
-        border-radius: 10px;
-        background: #fff;
-        border: 1px solid #e0e0e0;
-        font-weight: 600;
-    }
-    #trade-data-section .trade-data-filters .dropdown-toggle.filter-btn,
-    #trade-data-section .trade-data-filters .dropdown-toggle.time-range-btn {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        width: 100%;
-        text-align: left;
-        padding: 0.7rem 1rem;
-        border-radius: 10px;
-        background: #fff;
-        border: 1px solid #e0e0e0;
-        font-weight: 600;
-    }
-    .mobile-nav-menu {
-        position: fixed !important;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        background: rgba(255,255,255,0.98);
-        box-shadow: 0 4px 24px rgba(0,0,0,0.08);
-        border-radius: 0;
-        z-index: 2000;
-        overflow-y: auto;
-        padding-top: 70px;
-    }
-    .mobile-nav-menu .nav-link {
-        color: #222;
-        font-size: 1.1rem;
-        padding: 0.9rem 0;
-        border-bottom: 1px solid #f0f0f0;
-    }
-    .mobile-nav-menu .nav-link:last-child {
-        border-bottom: none;
-    }
-    .mobile-nav-menu .subscribe-btn {
-        margin-top: 0.5rem;
-        font-size: 1.1rem;
-        border-radius: 24px;
-        padding: 0.7rem 2rem;
-    }
-    .mobile-menu-close {
-        border: none !important;
-        background: none !important;
-        box-shadow: none !important;
-        position: absolute !important;
-        top: 1rem !important;
-        right: 1rem !important;
-        left: auto !important;
-        z-index: 2100 !important;
-        color: #222 !important;
-        padding: 0.25rem 0.5rem !important;
-        width: auto !important;
-        height: auto !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-    }
-    .mobile-menu-close .fa-times {
-        font-size: 2rem !important;
-        color: #222 !important;
-    }
-    #trade-data-section .table-responsive {
-        border-radius: 12px;
-        background: #fff;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-        margin-bottom: 0.5rem;
-        overflow-x: auto;
-    }
-    #trade-data-section .table {
-        font-size: 0.85rem;
-    }
-    #trade-data-section .table th,
-    #trade-data-section .table td {
-        padding: 0.4rem 0.3rem;
-        white-space: nowrap;
-    }
-    #trade-data-section .table thead th {
-        font-size: 0.9rem;
-        padding-top: 0.5rem;
-        padding-bottom: 0.5rem;
-    }
-    .seasonality-mobile-filters {
-        margin-bottom: 1rem;
-        gap: 0.2rem !important;
-    }
-    .seasonality-filter-btn {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 0.2rem;
-        background: #fff;
-        border: 1px solid #e0e0e0;
-        border-radius: 16px;
-        font-weight: 500;
-        font-size: 0.85rem;
-        color: #222;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-        padding: 0.35rem 0.1rem;
-        transition: background 0.2s, border 0.2s;
-        min-width: 0;
-        flex: 1 1 0;
-        white-space: nowrap;
-    }
-    .seasonality-filter-btn.active, .seasonality-filter-btn:active, .seasonality-filter-btn:focus {
-        background: #f4f4f4;
-        border: 1.5px solid #888;
-        color: #000;
-        outline: none;
+    summaryCards.forEach((card, index) => {
+        const cardTitle = card.querySelector('.card-title');
+        const country = cardTitle.textContent.split('in ')[1];
         
-    }
-    .seasonality-filter-btn .legend-dot {
-        margin-right: 0.2em;
-    }
-    #overview-section,
-    #market-pulse-section,
-    #trade-data-section,
-    #market-price-section,
-    #seasonality-section {
-        margin: 0.5rem;
-        padding: 1rem 0.5rem;
-        background: #fff;
-        border-radius: 16px;
-    }
-    .section-title {
-        margin-left: 0;
-        margin-right: 0;
-        margin-top: 0;
-        margin-bottom: 1rem;
-        text-align: left;
-    }
-    table th, table td {
-        text-align: center !important;
-        vertical-align: middle !important;
-    }
-    #trade-data-section .table-responsive,
-    #market-price-section .table-responsive {
-        border: 1px solid #e0e0e0 !important;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.04) !important;
-        border-radius: 12px !important;
-        background: #fff !important;
-    }
-    #market-price-section .table {
-        font-size: 0.85rem;
-    }
-    .mobile-header-bar .btn[data-bs-target="#mobileNavMenu"] {
-        background: none !important;
-        box-shadow: none !important;
-        border: none !important;
-        padding: 0.25rem 0.5rem;
-    }
-    #market-price-section .table-responsive {
-        overflow-x: auto !important;
-        -webkit-overflow-scrolling: touch !important;
-        white-space: nowrap !important;
-    }
-}
-.section-title {
-    align-self: flex-start;
+        if (country && data.percentages[country]) {
+            const percentageElement = card.querySelector('.status-up, .status-down');
+            const percentage = data.percentages[country].toFixed(2);
+            const isPositive = percentage >= 0;
+            
+            // Update percentage value and class
+            percentageElement.innerHTML = `<i class="fas fa-arrow-${isPositive ? 'up' : 'down'}"></i> ${isPositive ? '+' : ''}${percentage}%`;
+            percentageElement.className = isPositive ? 'status-up' : 'status-down';
+            
+            // Add animation effect for changes
+            card.classList.add('data-updated');
+            setTimeout(() => {
+                card.classList.remove('data-updated');
+            }, 1000);
+        }
+    });
 }
 
-@media (min-width: 992px) {
-    .navbar-brand img {
-        width: 72px !important;
-        height: 72px !important;
-    }
-    .summary-strip > .col-md-4,
-    .summary-strip > .col-lg-2 {
-        flex: 0 0 20%;
-        max-width: 20%;
-    }
-    #trade-data-section .section-title {
-        white-space: nowrap;
-        margin-right: 1.5rem;
-    }
-    #trade-data-section .trade-data-filters {
-        min-width: 0;
-        flex: 1 1 0;
-        align-items: center;
+// Update trade data with simulated values
+function updateTradeData() {
+    const data = generateSimulatedData();
+    const tableRows = document.querySelectorAll('.table tbody tr');
+    
+    tableRows.forEach((row, index) => {
+        const country = row.querySelector('td:nth-child(2)').textContent;
+        
+        if (country && data.volumes[country]) {
+            // Update trade values
+            const sharesValue = Math.round(data.volumes[country] * 0.01);
+            const overallValue = Math.round(data.volumes[country] * 100);
+            const importValue = Math.round(data.volumes[country] * 0.01);
+            const marketValue = Math.round(data.volumes[country] * 100);
+            
+            row.querySelector('td:nth-child(3)').textContent = `$${sharesValue}`;
+            row.querySelector('td:nth-child(4)').textContent = `$${overallValue}`;
+            row.querySelector('td:nth-child(5)').textContent = `$${importValue}`;
+            row.querySelector('td:nth-child(6)').textContent = `$${marketValue}`;
+            
+            // Update growth percentage
+            const growthCell = row.querySelector('td:nth-child(7)');
+            const growthValue = (index % 2 === 0) ? 
+                (data.percentages[country] * 1.2).toFixed(1) : 
+                (data.percentages[country] * -0.8).toFixed(1);
+            const isPositive = growthValue >= 0;
+            
+            growthCell.textContent = `${isPositive ? '+' : ''}${growthValue}%`;
+            growthCell.className = isPositive ? 'growth-positive' : 'growth-negative';
+            
+            // Add animation effect
+            row.classList.add('data-updated');
+            setTimeout(() => {
+                row.classList.remove('data-updated');
+            }, 1000);
+        }
+    });
+}
+
+// Update market prices with simulated data
+function updateMarketPrices() {
+    const data = generateSimulatedData();
+    const priceRows = document.querySelectorAll('.table:nth-of-type(2) tbody tr');
+    
+    priceRows.forEach((row, index) => {
+        const country = row.querySelector('td:nth-child(1)').textContent;
+        
+        if (country && data.values[country]) {
+            // Update price value
+            const priceCell = row.querySelector('td:nth-child(3)');
+            const price = data.values[country].toFixed(2);
+            priceCell.textContent = `$${price}`;
+            
+            // Update last update date
+            const dateCell = row.querySelector('td:nth-child(4)');
+            dateCell.textContent = data.lastUpdate[country];
+            
+            // Update status
+            const statusCell = row.querySelector('td:nth-child(5)');
+            const status = data.status[country];
+            let statusHTML = '';
+            
+            if (status === 'fresh') {
+                statusHTML = '<span class="status-fresh"><i class="fas fa-circle"></i> Fresh</span>';
+            } else if (status === 'old') {
+                statusHTML = '<span class="status-old"><i class="fas fa-circle"></i> 3 day old</span>';
+            } else {
+                statusHTML = '<span class="status-updating"><i class="fas fa-circle"></i> Updating</span>';
+            }
+            
+            statusCell.innerHTML = statusHTML;
+            
+            // Update change percentage
+            const changeCell = row.querySelector('td:nth-child(6)');
+            const changeValue = data.percentages[country].toFixed(2);
+            const isPositive = changeValue >= 0;
+            
+            changeCell.textContent = `${isPositive ? '+' : ''}${changeValue}%`;
+            changeCell.className = isPositive ? 'growth-positive' : 'growth-negative';
+            
+            // Update trend
+            const trendCell = row.querySelector('td:nth-child(7)');
+            trendCell.innerHTML = `<span class="trend-${isPositive ? 'up' : 'down'}"></span>`;
+            
+            // Add animation effect
+            row.classList.add('data-updated');
+            setTimeout(() => {
+                row.classList.remove('data-updated');
+            }, 1000);
+        }
+    });
+}
+
+// Trade Data Chart
+function initializeTradeChart() {
+    const ctx = document.getElementById('tradeChart');
+    
+    if (!ctx) return;
+    
+    const months = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
+    
+    // Generate realistic seasonal data
+    const importData = generateSeasonalData(10, 15, 0.3);
+    const exportData = generateSeasonalData(8, 12, 0.25);
+    
+        const isMobile = window.innerWidth <= 576;
+    
+    window.tradeChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: months,
+            datasets: [
+                {
+                    label: 'Import',
+                    data: importData,
+                    borderColor: '#dc3545',
+                    backgroundColor: 'rgba(220, 53, 69, 0.1)',
+                        borderWidth: 3,
+                    tension: 0.4,
+                    fill: true
+                },
+                {
+                    label: 'Export',
+                    data: exportData,
+                    borderColor: '#28a745',
+                    backgroundColor: 'rgba(40, 167, 69, 0.1)',
+                        borderWidth: 3,
+                    tension: 0.4,
+                    fill: true
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+                layout: {
+                    padding: {
+                        left: 10,
+                        right: 10,
+                        top: 10,
+                        bottom: 24 // extra space for x-axis labels
+                    }
+                },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    grid: {
+                        color: 'rgba(0, 0, 0, 0.05)'
+                    },
+                    ticks: {
+                        callback: function(value) {
+                            return '$' + value + 'M';
+                            },
+                            font: {
+                                size: isMobile ? 10 : 12
+                        }
+                    }
+                },
+                x: {
+                    grid: {
+                        display: false
+                        },
+                        ticks: {
+                            font: {
+                                size: isMobile ? 10 : 12
+                            },
+                            maxRotation: isMobile ? 45 : 0,
+                            minRotation: isMobile ? 45 : 0
+                    }
+                }
+            },
+            plugins: {
+                legend: {
+                    position: 'top',
+                    align: 'end'
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            return context.dataset.label + ': $' + context.raw + 'M';
+                        }
+                    }
+                }
+            }
+        }
+    });
+    
+    // Add event listeners for trade type radio buttons
+    const importRadio = document.getElementById('importRadio');
+    const exportRadio = document.getElementById('exportRadio');
+    
+    if (importRadio && exportRadio) {
+        importRadio.addEventListener('change', function() {
+            // Update chart or data display for import
+            updateTradeChart('import');
+        });
+        
+        exportRadio.addEventListener('change', function() {
+            // Update chart or data display for export
+            updateTradeChart('export');
+        });
     }
 }
 
-/* Headings and labels to black */
-.section-title,
-.overview-card .card-title,
-.market-pulse-card .card-title,
-.yoy-item .year,
-.yoy-item .growth-value,
-.snapshot-label,
-.snapshot-value,
-#trade-data-section .section-title,
-#market-price-section .section-title,
-#seasonality-section .section-title,
-.peru-label,
-.spain-label,
-.south-africa-label {
-    color: #000 !important;
+// Update trade chart with new data
+function updateTradeChart(type) {
+    if (!window.tradeChart) return;
+    
+    const chart = window.tradeChart;
+    const now = new Date();
+    const currentMonth = now.getMonth();
+    
+    // Generate new data with slight variations
+    const importData = generateSeasonalData(10, 15, 0.3);
+    const exportData = generateSeasonalData(8, 12, 0.25);
+    
+    // Highlight current month with slightly higher values
+    importData[currentMonth] = importData[currentMonth] * 1.05;
+    exportData[currentMonth] = exportData[currentMonth] * 1.05;
+    
+    // Update chart data
+    chart.data.datasets[0].data = importData;
+    chart.data.datasets[1].data = exportData;
+    
+    // If type is specified, highlight that dataset
+    if (type === 'import') {
+        chart.data.datasets[0].borderWidth = 3;
+        chart.data.datasets[1].borderWidth = 1;
+    } else if (type === 'export') {
+        chart.data.datasets[0].borderWidth = 1;
+        chart.data.datasets[1].borderWidth = 3;
+    }
+    
+    chart.update();
 }
 
-/* Consistent card corner radius */
-.market-pulse-card,
-#market-price-section .table-responsive,
-#seasonality-section .seasonality-legend,
-#trade-data-section .trade-data-legend,
-#market-price-section,
-#seasonality-section,
-#overview-section,
-#trade-data-section {
-    border-radius: var(--border-radius) !important;
+// Generate seasonal data with realistic patterns
+function generateSeasonalData(min, max, volatility) {
+    const data = [];
+    const range = max - min;
+    
+    // Create a seasonal pattern (higher in middle months)
+    for (let i = 0; i < 12; i++) {
+        // Base seasonal pattern (bell curve)
+        let seasonalFactor;
+        if (i < 6) {
+            seasonalFactor = 0.7 + (i * 0.06);
+        } else {
+            seasonalFactor = 1 - ((i - 6) * 0.06);
+        }
+        
+        // Add randomness
+        const randomFactor = 1 - volatility/2 + Math.random() * volatility;
+        
+        // Calculate value
+        const value = min + (range * seasonalFactor * randomFactor);
+        data.push(parseFloat(value.toFixed(2)));
+    }
+    
+    return data;
 }
 
-.market-pulse-card,
-#market-price-section .table-responsive,
-#seasonality-section .seasonality-legend,
-#trade-data-section .trade-data-legend {
-    border-radius: var(--border-radius) !important;
-    overflow: hidden;
-}
+// Seasonality Chart
+function initializeSeasonalityChart() {
+    const ctx = document.getElementById('seasonalityChart');
+    
+    if (!ctx) return;
+    
+    const months = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
+    
+    // Generate realistic seasonal data for each country
+    const peruData = generateCountrySeasonalData('Peru');
+    const spainData = generateCountrySeasonalData('Spain');
+    const southAfricaData = generateCountrySeasonalData('South Africa');
 
-.main-content-container {
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 2rem;
-    padding-right: 2rem;
-}
+    // Detect mobile
+    const isMobile = window.innerWidth <= 576;
 
-@media (max-width: 992px) {
-    .main-content-container {
-        padding-left: 1rem;
-        padding-right: 1rem;
+    window.seasonalityChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: months,
+            datasets: [
+                {
+                    label: 'Peru',
+                    data: peruData,
+                    backgroundColor: '#dc3545',
+                    borderColor: '#dc3545',
+                    borderWidth: 1
+                },
+                {
+                    label: 'Spain',
+                    data: spainData,
+                    backgroundColor: '#fd7e14',
+                    borderColor: '#fd7e14',
+                    borderWidth: 1
+                },
+                {
+                    label: 'South Africa',
+                    data: southAfricaData,
+                    backgroundColor: '#0d6efd',
+                    borderColor: '#0d6efd',
+                    borderWidth: 1
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            indexAxis: isMobile ? 'y' : 'x',
+            scales: isMobile ? {
+                x: {
+                    min: 1,
+                    max: 5,
+                    ticks: {
+                        stepSize: 1,
+                        callback: function(value) {
+                            if (value === 1) return 'Off Season';
+                            if (value === 3) return 'High Season';
+                            if (value === 5) return 'Off Season';
+                            return '';
+                        }
+                    },
+                    grid: {
+                        color: 'rgba(0, 0, 0, 0.05)'
+                    }
+                },
+                y: {
+                    // months will show automatically
+                    grid: {
+                        display: false
+                    }
+                }
+            } : {
+                y: {
+                    beginAtZero: true,
+                    max: 5,
+                    grid: {
+                        color: 'rgba(0, 0, 0, 0.05)'
+                    },
+                    ticks: {
+                        stepSize: 1,
+                        callback: function(value) {
+                            if (value === 1) return 'Off Season';
+                            if (value === 3) return 'High Season';
+                            if (value === 5) return 'Off Season';
+                            return '';
+                        }
+                    }
+                },
+                x: {
+                    grid: {
+                        display: false
+                    }
+                }
+            },
+            plugins: {
+                legend: {
+                    display: false
+                }
+            }
+        }
+    });
+
+    // Add event listeners for country checkboxes
+    const peruCheck = document.getElementById('peruCheck');
+    const spainCheck = document.getElementById('spainCheck');
+    const southAfricaCheck = document.getElementById('southAfricaCheck');
+    
+    if (peruCheck && spainCheck && southAfricaCheck) {
+        peruCheck.addEventListener('change', function() {
+            toggleCountryVisibility('Peru', this.checked);
+        });
+        
+        spainCheck.addEventListener('change', function() {
+            toggleCountryVisibility('Spain', this.checked);
+        });
+        
+        southAfricaCheck.addEventListener('change', function() {
+            toggleCountryVisibility('South Africa', this.checked);
+        });
     }
 }
-@media (max-width: 576px) {
-    .main-content-container {
-        padding-left: 0.5rem;
-        padding-right: 0.5rem;
+
+// Update seasonality chart
+function updateSeasonalityChart() {
+    if (!window.seasonalityChart) return;
+    
+    const chart = window.seasonalityChart;
+    
+    // Generate new data with slight variations
+    const peruData = generateCountrySeasonalData('Peru');
+    const spainData = generateCountrySeasonalData('Spain');
+    const southAfricaData = generateCountrySeasonalData('South Africa');
+    
+    // Update chart data
+    chart.data.datasets[0].data = peruData;
+    chart.data.datasets[1].data = spainData;
+    chart.data.datasets[2].data = southAfricaData;
+    
+    chart.update();
+}
+
+// Toggle country visibility in seasonality chart
+function toggleCountryVisibility(country, isVisible) {
+    if (!window.seasonalityChart) return;
+    
+    const chart = window.seasonalityChart;
+    let index = -1;
+    
+    if (country === 'Peru') index = 0;
+    else if (country === 'Spain') index = 1;
+    else if (country === 'South Africa') index = 2;
+    
+    if (index >= 0) {
+        chart.data.datasets[index].hidden = !isVisible;
+        chart.update();
     }
 }
 
-/* Ensure Bootstrap modal appears above the mobile menu */
-.modal-backdrop {
-    z-index: 3000 !important;
-}
-.modal {
-    z-index: 3010 !important;
-}
-body.modal-open .mobile-nav-menu {
-    display: none !important;
-    pointer-events: none !important;
+// Generate seasonal data for specific country
+function generateCountrySeasonalData(country) {
+    let data = [];
+    
+    // Different seasonal patterns for different countries
+    if (country === 'Peru') {
+        // Peru: Peak in Feb-Apr (Southern Hemisphere summer/fall)
+        data = [2, 3, 4, 4, 3, 2, 1, 1, 2, 2, 2, 2];
+    } else if (country === 'Spain') {
+        // Spain: Peak in Aug-Oct (Northern Hemisphere late summer/fall)
+        data = [1, 1, 2, 2, 3, 3, 4, 4, 4, 3, 2, 1];
+    } else if (country === 'South Africa') {
+        // South Africa: Peak in Jan-Mar (Southern Hemisphere summer)
+        data = [3, 4, 3, 2, 2, 1, 1, 1, 2, 2, 2, 3];
+    }
+    
+    // Add slight randomness
+    return data.map(value => {
+        const randomFactor = 0.9 + Math.random() * 0.2;
+        return Math.min(5, Math.max(1, value * randomFactor));
+    });
 }
 
-  /* Default: show full label, hide short label */
-.full-label {
-    display: inline;
-  }
-  .short-label {
-    display: none;
-  }
-  
-  /* On screen width 768px and below, switch labels */
-  @media (max-width: 1360px) {
-    .full-label {
-      display: none !important;
+// Sparklines for YOY Growth
+function initializeSparklines() {
+    const years = ['2017', '2018', '2019', '2020', '2021', '2022', '2023', '2024'];
+    
+    years.forEach(year => {
+        const sparklineElement = document.getElementById(`sparkline${year}`);
+        if (!sparklineElement) return;
+        
+        // Determine if it's a positive or negative trend based on the growth value
+        const growthElement = sparklineElement.parentElement.querySelector('.growth-value');
+        const isPositive = growthElement && growthElement.classList.contains('growth-positive');
+        
+        // Create SVG for sparkline
+        const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+        svg.setAttribute('width', '60');
+        svg.setAttribute('height', '20');
+        svg.setAttribute('viewBox', '0 0 60 20');
+        
+        const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+        
+        if (isPositive) {
+            // Upward trend path with randomness
+            const controlPoint1 = 15 + Math.random() * 10;
+            const controlPoint2 = 5 + Math.random() * 5;
+            path.setAttribute('d', `M0,15 Q${controlPoint1},${controlPoint2} 30,10 T60,5`);
+            path.setAttribute('stroke', '#28a745');
+        } else {
+            // Downward trend path with randomness
+            const controlPoint1 = 15 + Math.random() * 10;
+            const controlPoint2 = 15 + Math.random() * 5;
+            path.setAttribute('d', `M0,5 Q${controlPoint1},${controlPoint2} 30,10 T60,15`);
+            path.setAttribute('stroke', '#dc3545');
+        }
+        
+        path.setAttribute('fill', 'none');
+        path.setAttribute('stroke-width', '2');
+        
+        svg.appendChild(path);
+        sparklineElement.innerHTML = ''; // Clear any existing content
+        sparklineElement.appendChild(svg);
+    });
+}
+
+// Status updater function - simulates real-time updates
+function updateStatuses() {
+    const statusElements = document.querySelectorAll('.status-icon');
+    const now = new Date();
+    const hour = now.getHours();
+    const minute = now.getMinutes();
+    
+    statusElements.forEach((element, index) => {
+        // Determine status based on time and random factor
+        const random = Math.random();
+        const timeBasedProbability = (hour >= 9 && hour <= 17) ? 0.9 : 0.6; // Higher probability of "good" status during business hours
+        
+        if (random > timeBasedProbability) {
+            element.innerHTML = '<i class="fas fa-sync-alt fa-spin"></i>';
+            element.style.color = '#ffc107';
+            
+            // Add pulsing animation
+            element.classList.add('status-updating');
+            
+            // Simulate completion after a short delay
+            setTimeout(() => {
+                element.innerHTML = '<i class="fas fa-check-circle"></i>';
+                element.style.color = '#28a745';
+                element.classList.remove('status-updating');
+            }, 3000 + Math.random() * 5000);
+        } else {
+            element.innerHTML = '<i class="fas fa-check-circle"></i>';
+            element.style.color = '#28a745';
+            element.classList.remove('status-updating');
+        }
+    });
+}
+
+// Search functionality
+const searchInput = document.querySelector('.search-input');
+if (searchInput) {
+    searchInput.addEventListener('input', function() {
+        const searchTerm = this.value.toLowerCase();
+        
+        // Filter table rows based on search term
+        const tableRows = document.querySelectorAll('.table tbody tr');
+        tableRows.forEach(row => {
+            const text = row.textContent.toLowerCase();
+            if (text.includes(searchTerm)) {
+                row.style.display = '';
+            } else {
+                row.style.display = 'none';
+            }
+        });
+        
+        // Filter summary cards based on search term
+        const summaryCards = document.querySelectorAll('.summary-card');
+        summaryCards.forEach(card => {
+            const text = card.textContent.toLowerCase();
+            if (text.includes(searchTerm)) {
+                card.closest('.col-md-4').style.display = '';
+            } else {
+                card.closest('.col-md-4').style.display = 'none';
+            }
+        });
+    });
+}
+
+    document.querySelectorAll('.mobile-nav-menu .nav-link').forEach(link => {
+    link.addEventListener('click', function(e) {
+        // Only handle anchor links
+        const href = this.getAttribute('href');
+        if (href && href.startsWith('#')) {
+        e.preventDefault();
+        const menu = document.getElementById('mobileNavMenu');
+        if (menu.classList.contains('show')) {
+            const collapse = bootstrap.Collapse.getOrCreateInstance(menu);
+            collapse.hide();
+            // Wait for collapse animation (Bootstrap default is 350ms)
+            setTimeout(() => {
+            const target = document.querySelector(href);
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+            }, 400);
+        } else {
+            // If menu already closed, just scroll
+            const target = document.querySelector(href);
+            if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+        }
+    });
+    });
+
+    // Seasonality mobile filter buttons toggle
+    function updateSeasonalityMobileButtons() {
+        document.querySelectorAll('.seasonality-filter-btn').forEach(btn => {
+            const country = btn.getAttribute('data-country');
+            const checkbox = document.getElementById(
+                country === 'Peru' ? 'peruCheck' : country === 'Spain' ? 'spainCheck' : 'southAfricaCheck'
+            );
+            if (checkbox) {
+                if (checkbox.checked) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            }
+        });
     }
-    .short-label {
-      display: inline !important;
+
+    if (window.innerWidth <= 576) {
+        document.querySelectorAll('.seasonality-filter-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const country = this.getAttribute('data-country');
+                const checkbox = document.getElementById(
+                    country === 'Peru' ? 'peruCheck' : country === 'Spain' ? 'spainCheck' : 'southAfricaCheck'
+                );
+                if (checkbox) {
+                    checkbox.checked = !checkbox.checked;
+                    checkbox.dispatchEvent(new Event('change'));
+                    updateSeasonalityMobileButtons();
+                }
+            });
+        });
+        // Sync button state on load
+        updateSeasonalityMobileButtons();
     }
-  }
+
+    // Subscribe For Email modal logic
+    const subscribeBtns = document.querySelectorAll('.subscribe-btn');
+    subscribeBtns.forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        // Only open modal if not already inside the modal
+        if (!btn.closest('.modal')) {
+          // Close mobile menu if open
+          const menu = document.getElementById('mobileNavMenu');
+          if (menu && menu.classList.contains('show')) {
+            const collapse = bootstrap.Collapse.getOrCreateInstance(menu);
+            collapse.hide();
+          }
+          // Show modal
+          const modal = new bootstrap.Modal(document.getElementById('subscribeModal'));
+          modal.show();
+        }
+      });
+    });
+
+    const subscribeForm = document.getElementById('subscribeForm');
+    if (subscribeForm) {
+      subscribeForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        document.getElementById('subscribeSuccess').classList.remove('d-none');
+        subscribeForm.querySelector('button[type="submit"]').disabled = true;
+        subscribeForm.querySelector('input[type="email"]').disabled = true;
+        // Optionally, send the email to a backend here
+      });
+    }
+
+// Auto-scroll summary cards on mobile
+function autoScrollSummaryStrip() {
+    const strip = document.querySelector('.summary-strip-scroll');
+    if (!strip || window.innerWidth > 576) return;
+    let scrollAmount = 0;
+    const maxScroll = strip.scrollWidth - strip.clientWidth;
+    let direction = 1; // 1: right, -1: left
+
+    function animateScroll() {
+        if (direction === 1) {
+            scrollAmount += 3;
+            if (scrollAmount >= maxScroll) {
+                direction = -1;
+            }
+        } else {
+            scrollAmount -= 3;
+            if (scrollAmount <= 0) {
+                direction = 1;
+            }
+        }
+        strip.scrollTo({ left: scrollAmount, behavior: 'auto' });
+        requestAnimationFrame(animateScroll);
+    }
+    animateScroll();
+}
+
+document.addEventListener('DOMContentLoaded', autoScrollSummaryStrip);
+
