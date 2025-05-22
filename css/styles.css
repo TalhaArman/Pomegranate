@@ -152,9 +152,27 @@ h1, h2, h3, h4, h5, h6 {
     50% { opacity: 0.5; }
     100% { opacity: 1; }
 }
-
+/* Border Radius Setting */
+.country-badge{
+    border-radius: var(--border-radius) !important;   
+}
+input.form-control.search-input {
+    border: none;
+    background: none;
+}
+button.btn.search-btn {
+    background: black !important;
+}
+button,.input-group{
+    border-radius: var(--border-radius) !important;
+    box-shadow: var(--box-shadow) !important;
+    border: none !important;
+    height: 100% !important;
+    background-color: var(--card-bg) !important;
+    transition: transform 0.2s, box-shadow 0.3s !important;
+}
 /* Overview Section */
-.overview-card {
+.overview-card{
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
     border: none;
