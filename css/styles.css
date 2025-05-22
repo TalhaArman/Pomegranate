@@ -976,6 +976,27 @@ footer {
     .seasonality-filter-btn .legend-dot {
         margin-right: 0.2em;
     }
+    #overview-section,
+    #market-pulse-section,
+    #trade-data-section,
+    #market-price-section,
+    #seasonality-section {
+        margin: 0.5rem;
+        padding: 1rem 0.5rem;
+        background: #fff;
+        border-radius: 16px;
+    }
+    .section-title {
+        margin-left: 0;
+        margin-right: 0;
+        margin-top: 0;
+        margin-bottom: 1rem;
+        text-align: left;
+    }
+    table th, table td {
+        text-align: center !important;
+        vertical-align: middle !important;
+    }
 }
 .section-title {
     align-self: flex-start;
@@ -1071,3 +1092,21 @@ body.modal-open .mobile-nav-menu {
     display: none !important;
     pointer-events: none !important;
 }
+
+  /* Default: show full label, hide short label */
+.full-label {
+    display: inline;
+  }
+  .short-label {
+    display: none;
+  }
+  
+  /* On screen width 768px and below, switch labels */
+  @media (max-width: 1360px) {
+    .full-label {
+      display: none !important;
+    }
+    .short-label {
+      display: inline !important;
+    }
+  }
