@@ -1,4 +1,3 @@
-
 @font-face {
     font-family: 'Uber Move';
     src: url('../fonts/UberMoveMedium.otf') format('opentype');
@@ -963,6 +962,11 @@ footer {
     .navbar-brand img {
         width: 72px !important;
         height: 72px !important;
+    }
+    .summary-strip > .col-md-4,
+    .summary-strip > .col-lg-2 {
+        flex: 0 0 20%;
+        max-width: 20%;
     }
 }
 
