@@ -1021,6 +1021,11 @@ footer {
         border: none !important;
         padding: 0.25rem 0.5rem;
     }
+    #market-price-section .table-responsive {
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+        white-space: nowrap !important;
+    }
 }
 .section-title {
     align-self: flex-start;
