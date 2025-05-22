@@ -831,12 +831,12 @@ function autoScrollSummaryStrip() {
 
     function animateScroll() {
         if (direction === 1) {
-            scrollAmount += 3;
+            scrollAmount += 1;
             if (scrollAmount >= maxScroll) {
                 direction = -1;
             }
         } else {
-            scrollAmount -= 3;
+            scrollAmount -= 1;
             if (scrollAmount <= 0) {
                 direction = 1;
             }
