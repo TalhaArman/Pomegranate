@@ -13,6 +13,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Start real-time data simulation
     startRealTimeDataSimulation();
+    
+    // Auto-scroll summary cards on mobile
+    autoScrollSummaryStrip();
 });
 
 // Dropdown functionality
@@ -817,4 +820,32 @@ if (searchInput) {
         // Optionally, send the email to a backend here
       });
     }
+
+// Auto-scroll summary cards on mobile
+function autoScrollSummaryStrip() {
+    const strip = document.querySelector('.summary-strip-scroll');
+    if (!strip || window.innerWidth > 576) return;
+    let scrollAmount = 0;
+    const maxScroll = strip.scrollWidth - strip.clientWidth;
+    let direction = 1; // 1: right, -1: left
+
+    function animateScroll() {
+        if (direction === 1) {
+            scrollAmount += 3;
+            if (scrollAmount >= maxScroll) {
+                direction = -1;
+            }
+        } else {
+            scrollAmount -= 3;
+            if (scrollAmount <= 0) {
+                direction = 1;
+            }
+        }
+        strip.scrollTo({ left: scrollAmount, behavior: 'auto' });
+        requestAnimationFrame(animateScroll);
+    }
+    animateScroll();
+}
+
+document.addEventListener('DOMContentLoaded', autoScrollSummaryStrip);
 
