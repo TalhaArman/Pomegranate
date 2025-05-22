@@ -662,20 +662,18 @@ footer {
         -webkit-overflow-scrolling: touch;
         gap: 1rem;
         padding-bottom: 0.5rem;
-        margin-left: -0.75rem;
-        margin-right: -0.75rem;
-        scrollbar-width: none; /* Firefox */
-    }
-    .market-pulse-scroll::-webkit-scrollbar {
-        display: none; /* Chrome, Safari */
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+        margin-left: 0;
+        margin-right: 0;
     }
     .market-pulse-scroll > .col-md-4,
     .market-pulse-scroll > .mb-3 {
-        flex: 0 0 70vw;
-        max-width: 70vw;
-        min-width: 70vw;
-        padding-left: 0.5rem;
-        padding-right: 0.5rem;
+        flex: 0 0 85vw;
+        max-width: 85vw;
+        min-width: 85vw;
+        padding-left: 0;
+        padding-right: 0;
         margin-bottom: 0;
     }
     .market-pulse-card {
@@ -914,15 +912,25 @@ footer {
         padding: 0.7rem 2rem;
     }
     .mobile-menu-close {
-        z-index: 2100;
-        color: #222;
-        background: none;
-        border: none;
-        box-shadow: none;
+        border: none !important;
+        background: none !important;
+        box-shadow: none !important;
+        position: absolute !important;
+        top: 1rem !important;
+        right: 1rem !important;
+        left: auto !important;
+        z-index: 2100 !important;
+        color: #222 !important;
+        padding: 0.25rem 0.5rem !important;
+        width: auto !important;
+        height: auto !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
     }
-    .mobile-menu-close:focus {
-        outline: none;
-        box-shadow: none;
+    .mobile-menu-close .fa-times {
+        font-size: 2rem !important;
+        color: #222 !important;
     }
     #trade-data-section .table-responsive {
         border-radius: 12px;
@@ -996,6 +1004,22 @@ footer {
     table th, table td {
         text-align: center !important;
         vertical-align: middle !important;
+    }
+    #trade-data-section .table-responsive,
+    #market-price-section .table-responsive {
+        border: 1px solid #e0e0e0 !important;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.04) !important;
+        border-radius: 12px !important;
+        background: #fff !important;
+    }
+    #market-price-section .table {
+        font-size: 0.85rem;
+    }
+    .mobile-header-bar .btn[data-bs-target="#mobileNavMenu"] {
+        background: none !important;
+        box-shadow: none !important;
+        border: none !important;
+        padding: 0.25rem 0.5rem;
     }
 }
 .section-title {
