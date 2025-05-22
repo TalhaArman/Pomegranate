@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pomegranate Trade Dashboard</title>
-    <link rel="icon" type="image/png" href="img/pomegranate-site-icon.png">
+    <link rel="icon" type="image/png" href="img/pomegranate-icon.png">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome for icons -->
@@ -18,7 +18,7 @@
         <div class="container-fluid">
             <!-- Mobile Header Layout -->
             <div class="d-flex w-100 align-items-center d-lg-none mobile-header-bar">
-                <!-- Logo -->
+            <!-- Logo -->
                 <a class="navbar-brand p-0 me-2" href="#">
                     <img src="img/pomegranate-icon.png" alt="Pomegranate Logo" width="56" height="56">
                 </a>
@@ -45,7 +45,7 @@
             <div class="collapse mobile-nav-menu d-lg-none" id="mobileNavMenu">
                 <button type="button" class="btn btn-link mobile-menu-close position-absolute top-0 end-0 mt-3 me-3" data-bs-toggle="collapse" data-bs-target="#mobileNavMenu" aria-label="Close menu">
                     <span class="fa fa-times fa-2x"></span>
-                </button>
+            </button>
                 <ul class="nav flex-column text-center py-3">
                     <li class="nav-item"><a class="nav-link" href="#overview-section" data-bs-toggle="collapse" data-bs-target="#mobileNavMenu">Overview</a></li>
                     <li class="nav-item"><a class="nav-link" href="#trade-data-section" data-bs-toggle="collapse" data-bs-target="#mobileNavMenu">Trade Data</a></li>
@@ -63,8 +63,8 @@
                 <a class="navbar-brand p-0 me-2" href="#">
                     <img src="img/pomegranate-icon.png" alt="Pomegranate Logo" width="72" height="72">
                 </a>
-                <!-- Centered Menu Items -->
-                <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                <!-- Menu next to logo -->
+                <ul class="navbar-nav ms-2 me-3">
                     <li class="nav-item">
                         <a class="nav-link active" href="#overview-section">Overview</a>
                     </li>
@@ -81,6 +81,15 @@
                         <a class="nav-link" href="#market-pulse-section">Market Pulse</a>
                     </li>
                 </ul>
+                <!-- Desktop Search Bar -->
+                <form class="flex-grow-1 mx-3 d-none d-lg-block" style="max-width: 400px;">
+                    <div class="input-group">
+                        <input class="form-control search-input" type="search" placeholder="Search here" aria-label="Search">
+                        <button class="btn search-btn" type="submit">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </form>
                 <!-- Right-side controls -->
                 <div class="dropdown me-2">
                     <button class="btn dropdown-toggle region-dropdown" type="button" id="regionDropdown" data-bs-toggle="dropdown" aria-expanded="false">
@@ -138,7 +147,7 @@
     <div class="container-lg main-content-container mt-3">
         <!-- Top Summary Strip -->
         <div class="row summary-strip summary-strip-scroll">
-            <!-- Summary Cards - Repeated for each country -->
+            <!-- Summary Cards - Unique countries -->
             <div class="col-md-4 col-lg-2 mb-3">
                 <div class="card summary-card">
                     <div class="card-body">
@@ -153,7 +162,7 @@
             <div class="col-md-4 col-lg-2 mb-3">
                 <div class="card summary-card">
                     <div class="card-body">
-                        <h6 class="card-title">Pomegranate in South Africa</h6>
+                        <h6 class="card-title">Pomegranate in UAE</h6>
                         <div class="d-flex align-items-center">
                             <span class="status-down"><i class="fas fa-arrow-down"></i> -0.71%</span>
                             <span class="status-icon ms-auto"><i class="fas fa-check-circle"></i></span>
@@ -166,7 +175,7 @@
                     <div class="card-body">
                         <h6 class="card-title">Pomegranate in Spain</h6>
                         <div class="d-flex align-items-center">
-                            <span class="status-up"><i class="fas fa-arrow-up"></i> +0.71%</span>
+                            <span class="status-up"><i class="fas fa-arrow-up"></i> +1.12%</span>
                             <span class="status-icon ms-auto"><i class="fas fa-check-circle"></i></span>
                         </div>
                     </div>
@@ -175,9 +184,9 @@
             <div class="col-md-4 col-lg-2 mb-3">
                 <div class="card summary-card">
                     <div class="card-body">
-                        <h6 class="card-title">Pomegranate in Peru</h6>
+                        <h6 class="card-title">Pomegranate in USA</h6>
                         <div class="d-flex align-items-center">
-                            <span class="status-up"><i class="fas fa-arrow-up"></i> +0.71%</span>
+                            <span class="status-up"><i class="fas fa-arrow-up"></i> +2.45%</span>
                             <span class="status-icon ms-auto"><i class="fas fa-check-circle"></i></span>
                         </div>
                     </div>
@@ -186,9 +195,9 @@
             <div class="col-md-4 col-lg-2 mb-3">
                 <div class="card summary-card">
                     <div class="card-body">
-                        <h6 class="card-title">Pomegranate in South Africa</h6>
+                        <h6 class="card-title">Pomegranate in Turkey</h6>
                         <div class="d-flex align-items-center">
-                            <span class="status-down"><i class="fas fa-arrow-down"></i> -0.71%</span>
+                            <span class="status-down"><i class="fas fa-arrow-down"></i> -0.98%</span>
                             <span class="status-icon ms-auto"><i class="fas fa-check-circle"></i></span>
                         </div>
                     </div>
@@ -423,36 +432,37 @@
 
         <!-- Trade Data Section -->
         <section id="trade-data-section" class="mt-4 mb-4">
-            <h2 class="section-title mb-3">Trade Data</h2>
-            
-            <div class="trade-data-filters d-flex justify-content-end mb-3">
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="tradeType" id="importRadio" checked>
-                    <label class="form-check-label" for="importRadio">Import</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="tradeType" id="exportRadio">
-                    <label class="form-check-label" for="exportRadio">Export</label>
-                </div>
-                <div class="dropdown ms-2">
-                    <button class="btn dropdown-toggle filter-btn" type="button" id="tradeTypeDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                        Trade Type: All
-                    </button>
-                    <ul class="dropdown-menu" aria-labelledby="tradeTypeDropdown">
-                        <li><a class="dropdown-item" href="#">All</a></li>
-                        <li><a class="dropdown-item" href="#">Import</a></li>
-                        <li><a class="dropdown-item" href="#">Export</a></li>
-                    </ul>
-                </div>
-                <div class="dropdown ms-2">
-                    <button class="btn dropdown-toggle time-range-btn" type="button" id="tradeTimeRangeDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                        Time Range: Yearly
-                    </button>
-                    <ul class="dropdown-menu" aria-labelledby="tradeTimeRangeDropdown">
-                        <li><a class="dropdown-item" href="#">Yearly</a></li>
-                        <li><a class="dropdown-item" href="#">Monthly</a></li>
-                        <li><a class="dropdown-item" href="#">Weekly</a></li>
-                    </ul>
+            <div class="d-flex flex-column flex-lg-row align-items-lg-center justify-content-lg-between mb-3">
+                <h2 class="section-title mb-0">Trade Data</h2>
+                <div class="trade-data-filters d-flex justify-content-end ms-lg-4 mt-3 mt-lg-0 w-100 w-lg-auto">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="tradeType" id="importRadio" checked>
+                        <label class="form-check-label" for="importRadio">Import</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="tradeType" id="exportRadio">
+                        <label class="form-check-label" for="exportRadio">Export</label>
+                    </div>
+                    <div class="dropdown ms-2">
+                        <button class="btn dropdown-toggle filter-btn" type="button" id="tradeTypeDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                            Trade Type: All
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="tradeTypeDropdown">
+                            <li><a class="dropdown-item" href="#">All</a></li>
+                            <li><a class="dropdown-item" href="#">Import</a></li>
+                            <li><a class="dropdown-item" href="#">Export</a></li>
+                        </ul>
+                    </div>
+                    <div class="dropdown ms-2">
+                        <button class="btn dropdown-toggle time-range-btn" type="button" id="tradeTimeRangeDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                            Time Range: Yearly
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="tradeTimeRangeDropdown">
+                            <li><a class="dropdown-item" href="#">Yearly</a></li>
+                            <li><a class="dropdown-item" href="#">Monthly</a></li>
+                            <li><a class="dropdown-item" href="#">Weekly</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
 
@@ -535,9 +545,9 @@
 
         <!-- Market Prices Section -->
         <section id="market-price-section" class="mt-4 mb-4">
-            <h2 class="section-title mb-3">Market Prices</h2>
-            
-            <div class="market-prices-filters d-flex justify-content-start mb-3">
+            <div class="d-flex align-items-center justify-content-between flex-wrap flex-md-nowrap mb-3">
+                <h2 class="section-title mb-0">Market Prices</h2>
+                <div class="market-prices-filters d-flex justify-content-start ms-md-4 mt-3 mt-md-0">
                 <div class="dropdown me-2">
                     <button class="btn dropdown-toggle filter-btn" type="button" id="statusDropdown" data-bs-toggle="dropdown" aria-expanded="false">
                         Status: All
@@ -569,6 +579,7 @@
                         <li><a class="dropdown-item" href="#">Monthly</a></li>
                         <li><a class="dropdown-item" href="#">Weekly</a></li>
                     </ul>
+                    </div>
                 </div>
             </div>
 
@@ -680,7 +691,7 @@
                 </div>
             </div>
 
-        
+
             <!-- Seasonality Chart -->
             <div class="card">
                 <div class="card-body">
