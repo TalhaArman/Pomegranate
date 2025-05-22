@@ -691,7 +691,8 @@ footer {
         border: 1px solid #e0e0e0;
         font-weight: 600;
         text-align: left;
-    }
+       
+    }   
     /* Hide radio buttons for mobile (optional, if you want only dropdowns visible) */
     #trade-data-section .trade-data-filters .form-check-inline {
         display: none !important;
@@ -794,6 +795,9 @@ footer {
         width: 100% !important;
         min-width: 0 !important;
         box-sizing: border-box;
+    }
+     .d-flex {
+        align-items: center !important;
     }
     /* Hide checkboxes for mobile (optional, if you want only legend visible) */
     #seasonality-section .seasonality-filters .form-check-inline {
@@ -952,6 +956,7 @@ footer {
         border: 1.5px solid #888;
         color: #000;
         outline: none;
+        
     }
     .seasonality-filter-btn .legend-dot {
         margin-right: 0.2em;
@@ -975,6 +980,7 @@ footer {
     #trade-data-section .trade-data-filters {
         min-width: 0;
         flex: 1 1 0;
+        align-items: center;
     }
 }
 
