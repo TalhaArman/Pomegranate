@@ -435,38 +435,42 @@
             <div class="d-flex flex-column flex-lg-row align-items-lg-center justify-content-lg-between mb-3">
                 <h2 class="section-title mb-0">Trade Data</h2>
                 <div class="trade-data-filters d-flex justify-content-end ms-lg-4 mt-3 mt-lg-0 w-100 w-lg-auto">
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="tradeType" id="importRadio" checked>
-                        <label class="form-check-label" for="importRadio">Import</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="tradeType" id="exportRadio">
-                        <label class="form-check-label" for="exportRadio">Export</label>
-                    </div>
-                    <div class="dropdown ms-2">
-                        <button class="btn dropdown-toggle filter-btn" type="button" id="tradeTypeDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                            Trade Type: All
-                        </button>
-                        <ul class="dropdown-menu" aria-labelledby="tradeTypeDropdown">
-                            <li><a class="dropdown-item" href="#">All</a></li>
-                            <li><a class="dropdown-item" href="#">Import</a></li>
-                            <li><a class="dropdown-item" href="#">Export</a></li>
-                        </ul>
-                    </div>
-                    <div class="dropdown ms-2">
-                        <button class="btn dropdown-toggle time-range-btn" type="button" id="tradeTimeRangeDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                            Time Range: Yearly
-                        </button>
-                        <ul class="dropdown-menu" aria-labelledby="tradeTimeRangeDropdown">
-                            <li><a class="dropdown-item" href="#">Yearly</a></li>
-                            <li><a class="dropdown-item" href="#">Monthly</a></li>
-                            <li><a class="dropdown-item" href="#">Weekly</a></li>
-                        </ul>
-                    </div>
+                <div class="form-check form-check-inline align-items-center">
+                    <input class="form-check-input" type="radio" name="tradeType" id="importRadio" checked>
+                    <label class="form-check-label d-flex align-items-center" for="importRadio">
+                        <span class="legend-dot legend-import d-none d-lg-inline-block me-1"></span> Import
+                    </label>
+                </div>
+                <div class="form-check form-check-inline align-items-center">
+                    <input class="form-check-input" type="radio" name="tradeType" id="exportRadio">
+                    <label class="form-check-label d-flex align-items-center" for="exportRadio">
+                        <span class="legend-dot legend-export d-none d-lg-inline-block me-1"></span> Export
+                    </label>
+                </div>
+                <div class="dropdown ms-2">
+                    <button class="btn dropdown-toggle filter-btn" type="button" id="tradeTypeDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                        Trade Type: All
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="tradeTypeDropdown">
+                        <li><a class="dropdown-item" href="#">All</a></li>
+                        <li><a class="dropdown-item" href="#">Import</a></li>
+                        <li><a class="dropdown-item" href="#">Export</a></li>
+                    </ul>
+                </div>
+                <div class="dropdown ms-2">
+                    <button class="btn dropdown-toggle time-range-btn" type="button" id="tradeTimeRangeDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                        Time Range: Yearly
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="tradeTimeRangeDropdown">
+                        <li><a class="dropdown-item" href="#">Yearly</a></li>
+                        <li><a class="dropdown-item" href="#">Monthly</a></li>
+                        <li><a class="dropdown-item" href="#">Weekly</a></li>
+                    </ul>
+                </div>
                 </div>
             </div>
 
-            <div class="trade-data-legend d-flex justify-content-center align-items-center mb-3">
+            <div class="trade-data-legend d-flex justify-content-center align-items-center mb-3 d-lg-none">
                 <span class="me-4"><span class="legend-dot legend-import"></span> Import</span>
                 <span><span class="legend-dot legend-export"></span> Export</span>
             </div>
