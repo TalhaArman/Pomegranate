@@ -968,6 +968,14 @@ footer {
         flex: 0 0 20%;
         max-width: 20%;
     }
+    #trade-data-section .section-title {
+        white-space: nowrap;
+        margin-right: 1.5rem;
+    }
+    #trade-data-section .trade-data-filters {
+        min-width: 0;
+        flex: 1 1 0;
+    }
 }
 
 /* Headings and labels to black */
