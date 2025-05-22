@@ -369,10 +369,7 @@ button,.input-group{
     transition: background-color 0.2s, color 0.2s;
 }
 
-.view-all-btn:hover {
-    background-color: var(--primary-color);
-    color: white;
-}
+
 
 /* Trade Data Section */
 .form-check-input:checked {
