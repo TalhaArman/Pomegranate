@@ -536,10 +536,10 @@ footer {
         flex-wrap: nowrap !important;
         overflow-x: auto;
         -webkit-overflow-scrolling: touch;
-        gap: 1rem;
         padding-bottom: 0.5rem;
         margin-left: -0.75rem;
         margin-right: -0.75rem;
+        width: 100%;
     }
     .summary-strip-scroll > .col-md-4,
     .summary-strip-scroll > .col-lg-2,
