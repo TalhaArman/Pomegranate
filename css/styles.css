@@ -748,11 +748,8 @@ footer {
     #market-price-section .market-prices-filters {
         display: flex !important;
         flex-wrap: wrap;
-        gap: 0.7rem;
+        gap: 1.5rem;
         margin-bottom: 1rem;
-    }
-    #market-price-section .market-prices-filters .dropdown {
-        min-width: 0;
     }
     #market-price-section .market-prices-filters .dropdown:nth-child(1),
     #market-price-section .market-prices-filters .dropdown:nth-child(2) {
@@ -1138,4 +1135,17 @@ body.modal-open .mobile-nav-menu {
     .short-label {
       display: inline !important;
     }
-  }
+}
+
+.modal-content .btn[type="submit"],
+#subscribeForm .btn[type="submit"] {
+    background: #000 !important;
+    color: #fff !important;
+    font-family: 'Uber Move', Arial, Helvetica, sans-serif !important;
+    border-radius: 20px;
+    font-weight: 500;
+}
+
+body, button, input, select, textarea {
+    font-family: 'Uber Move', Arial, Helvetica, sans-serif !important;
+}
