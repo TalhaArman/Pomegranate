@@ -1105,6 +1105,19 @@ footer {
         padding-left: 0.5rem;
         padding-right: 0.5rem;
     }
+    .me-2 {
+        margin-right: 0px !important;
+    }
+    .ms-2 {
+        margin-left: 0px !important;
+    }
+    .row.summary-strip.summary-strip-scroll {
+        padding-bottom: 0px !important;
+        padding-top: 1.5rem;
+    }
+    button#regionDropdownMobile {
+        margin-right: 1.5rem;
+    }
 }
 
 /* Ensure Bootstrap modal appears above the mobile menu */
