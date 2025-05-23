@@ -825,27 +825,22 @@ if (searchInput) {
 function autoScrollSummaryStrip() {
     const strip = document.querySelector('.summary-strip-scroll');
     if (!strip || window.innerWidth > 576) return;
-    let scrollAmount = 0;
-    const maxScroll = strip.scrollWidth - strip.clientWidth;
-    let direction = 1; // 1: right, -1: left
+
+    // Clone and append the contents for seamless loop
+    strip.innerHTML += strip.innerHTML;
+
+    let scrollPos = 0;
 
     function animateScroll() {
-        if (direction === 1) {
-            scrollAmount += 1;
-            if (scrollAmount >= maxScroll) {
-                direction = -1;
-            }
-        } else {
-            scrollAmount -= 1;
-            if (scrollAmount <= 0) {
-                direction = 1;
-            }
+        scrollPos += 1;
+        if (scrollPos >= strip.scrollWidth / 2) {
+            scrollPos = 0; // Reset halfway (original content length)
         }
-        strip.scrollTo({ left: scrollAmount, behavior: 'auto' });
+        strip.scrollLeft = scrollPos;
         requestAnimationFrame(animateScroll);
     }
+
     animateScroll();
 }
 
 document.addEventListener('DOMContentLoaded', autoScrollSummaryStrip);
-
