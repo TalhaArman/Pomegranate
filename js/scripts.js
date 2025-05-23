@@ -456,7 +456,7 @@ function initializeSeasonalityChart() {
 
     // Detect mobile
     const isMobile = window.innerWidth <= 576;
-
+    
     window.seasonalityChart = new Chart(ctx, {
         type: 'bar',
         data: {
@@ -542,7 +542,7 @@ function initializeSeasonalityChart() {
             }
         }
     });
-
+    
     // Add event listeners for country checkboxes
     const peruCheck = document.getElementById('peruCheck');
     const spainCheck = document.getElementById('spainCheck');
