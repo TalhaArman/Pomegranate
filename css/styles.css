@@ -31,6 +31,7 @@ body {
     font-family: var(--font-family);
     background-color: var(--light-bg);
     color: #333;
+    position: relative;
 }
 
 /* Typography */
@@ -42,14 +43,6 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 1.5rem;
     color: var(--primary-color);
     margin-bottom: 1rem;
-}
-
-/* Navbar Styling */
-.navbar {
-    padding: 0.75rem 1rem;
-    position: sticky;
-    top: 0;
-    z-index: 1020; /* Ensure it stays on top of other content */
 }
 
 .navbar-brand img {
@@ -74,7 +67,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .search-input {
-
     background-color: #f8f8f8;
 }
 
@@ -116,6 +108,9 @@ h1, h2, h3, h4, h5, h6 {
     -webkit-overflow-scrolling: touch; /* Enable smooth scrolling on iOS */
     scrollbar-width: none; /* Hide scrollbar for Firefox */
     -ms-overflow-style: none;  /* Hide scrollbar for IE and Edge */
+    margin-left: 0.4rem !important;
+    margin-right: 0.4rem !important;
+    padding: 0px !important;
 }
 
 .summary-strip-scroll::-webkit-scrollbar {
@@ -126,6 +121,14 @@ h1, h2, h3, h4, h5, h6 {
     .summary-strip-scroll {
         padding-left: 2rem; /* Match .container-lg padding */
         padding-right: 2rem; /* Match .container-lg padding */
+        display: flex; /* Enable flexbox for gap control */
+        gap: 1rem; /* Add gap between cards */
+    }
+    .summary-strip-scroll > .col-md-4,
+    .summary-strip-scroll > .col-lg-2 {
+        flex: 0 0 auto; /* Allow width to be determined by content */
+        max-width: none; /* Remove max-width constraint */
+        padding: 0; /* Remove default column padding */
     }
 }
 
@@ -145,6 +148,7 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 0.9rem;
     font-weight: 600;
     margin-bottom: 0.5rem;
+    white-space: nowrap;
 }
 
 .status-up {
@@ -577,13 +581,14 @@ footer {
         flex-wrap: nowrap !important;
         overflow-x: auto !important ;
         -webkit-overflow-scrolling: touch;
-
-        padding-bottom: 0.5rem;
         width: 100% !important;
+        padding-bottom: 0.5rem;
         white-space: nowrap !important;
         overflow-y: hidden !important;
         scroll-behavior: auto !important;
-        padding-right: 1rem; /* Add padding to the right */
+         padding: 1rem 0.5rem 1.5rem 0.5rem !important;
+        margin-left: 0.5rem !important;
+        margin-right: 0.5rem !important;
     }
     .summary-strip-scroll > .col-md-4,
     .summary-strip-scroll > .col-lg-2,
@@ -1115,7 +1120,35 @@ footer {
         margin-right: 0.5rem; /* Add space between input and button */
     }
 
-   
+    #trade-data-section .table,
+    #market-price-section .table {
+        border-collapse: collapse; /* Collapse borders to avoid double borders */
+        border: none !important; /* Remove border from the table itself on mobile */
+    }
+    #trade-data-section .table tbody tr,
+    #market-price-section .table tbody tr {
+        border: none !important; /* Remove any borders from table rows on mobile */
+    }
+    #trade-data-section .table tbody td,
+    #market-price-section .table tbody td {
+        border-bottom: none !important; /* Ensure no bottom border on table cells */
+    }
+    #trade-data-section .table,
+    #market-price-section .table {
+        border-collapse: collapse; /* Ensure borders are collapsed */
+        border: none !important; /* Explicitly remove table border */
+    }
+    #trade-data-section .table th,
+    #market-price-section .table th,
+    #trade-data-section .table td,
+    #market-price-section .table td {
+        border: none !important; /* Explicitly remove borders from all th and td cells */
+        padding: 0.4rem 0.3rem; /* Keep existing padding */
+    }
+    #trade-data-section .table tbody tr,
+    #market-price-section .table tbody tr {
+        border: none !important; /* Ensure no borders on table rows */
+    }
 }
 .section-title {
     align-self: flex-start;
@@ -1215,6 +1248,22 @@ footer {
         flex-grow: 1; /* Allow input to grow */
         margin-right: 0.5rem; /* Add space between input and button */
     }
+    #trade-data-section .table,
+    #market-price-section .table {
+        border-collapse: collapse; /* Ensure borders are collapsed */
+        border: none !important; /* Explicitly remove table border */
+    }
+    #trade-data-section .table th,
+    #market-price-section .table th,
+    #trade-data-section .table td,
+    #market-price-section .table td {
+        border: none !important; /* Explicitly remove borders from all th and td cells */
+        padding: 0.4rem 0.3rem; /* Keep existing padding */
+    }
+    #trade-data-section .table tbody tr,
+    #market-price-section .table tbody tr {
+        border: none !important; /* Ensure no borders on table rows */
+    }
 }
 
 /* Ensure Bootstrap modal appears above the mobile menu */
@@ -1287,6 +1336,12 @@ body, button, input, select, textarea {
     background-color: black !important;
     color: white !important;
     padding: 0.75rem 1rem; /* Adjust padding as needed */
+    position: sticky;
+    top: 0;
+    z-index: 1010; /* Ensure it is below the navbar (z-index 1020) */
+    will-change: transform;
+    width: 100%;
+    margin: 0 auto;
 }
 
 .subscribe-bar .container-lg {
@@ -1340,4 +1395,23 @@ body, button, input, select, textarea {
 #navbarContent .dropdown {
     /* Adjust margin for dropdown */
     margin-left: auto; /* Push dropdown to the right */
+}
+
+/* Navbar Styling */
+.navbar {
+    padding: 0.75rem 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 1020; /* Ensure it stays on top of other content */
+}
+
+.search-input:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 1030;
 }
