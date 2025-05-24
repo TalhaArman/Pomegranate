@@ -1415,3 +1415,13 @@ body, button, input, select, textarea {
     top: 0;
     z-index: 1030;
 }
+
+/* Styling for the Thank You modal */
+#thankYouModal .btn-close {
+    border: none !important;
+    color: black !important; /* Change close button icon color to black */
+}
+
+#thankYouModal .modal-body .btn {
+    color: black !important; /* Change the text color of the button in the modal body to black */
+}
