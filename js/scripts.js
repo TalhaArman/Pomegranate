@@ -60,6 +60,8 @@ function refreshDashboardData() {
     updateMarketPrices();
     updateTradeChart();
     updateSeasonalityChart();
+    updateYOYGrowth();
+    updateTradeSnapshotVolumes();
 }
 
 // Generate simulated data based on current date/time
@@ -271,8 +273,46 @@ function updateMarketPrices() {
         }
     });
 }
- 
-  
+
+// Update Year-on-Year Growth with random data
+function updateYOYGrowth() {
+    const yoyItems = document.querySelectorAll('.yoy-item');
+
+    yoyItems.forEach(item => {
+        const growthValueElement = item.querySelector('.growth-value');
+        if (growthValueElement) {
+            // Generate a random percentage between -15 and +15 (adjust range as needed)
+            const randomGrowth = (Math.random() * 30 - 15).toFixed(1);
+            const isPositive = parseFloat(randomGrowth) >= 0;
+
+            // Update text content
+            growthValueElement.textContent = `${isPositive ? '+' : ''}${randomGrowth}%`;
+
+            // Update class for styling and sparkline
+            growthValueElement.classList.remove('growth-positive', 'growth-negative');
+            growthValueElement.classList.add(isPositive ? 'growth-positive' : 'growth-negative');
+        }
+    });
+    // Re-initialize sparklines after updating values and classes
+    initializeSparklines();
+}
+
+// Update Trade Snapshot volumes with random data
+function updateTradeSnapshotVolumes() {
+    const totalExportVolumeElement = document.getElementById('totalExportVolume');
+    const totalImportVolumeElement = document.getElementById('totalImportVolume');
+
+    if (totalExportVolumeElement && totalImportVolumeElement) {
+        // Generate random volumes (adjust range as needed)
+        const randomExportVolume = Math.floor(Math.random() * (20000 - 5000 + 1)) + 5000;
+        const randomImportVolume = Math.floor(Math.random() * (18000 - 4000 + 1)) + 4000;
+
+        // Update text content with comma formatting
+        totalExportVolumeElement.textContent = randomExportVolume.toLocaleString();
+        totalImportVolumeElement.textContent = randomImportVolume.toLocaleString();
+    }
+}
+
 // Trade Data Chart
 function initializeTradeChart() {
     const ctx = document.getElementById('tradeChart');
