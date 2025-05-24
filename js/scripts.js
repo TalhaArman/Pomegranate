@@ -271,7 +271,8 @@ function updateMarketPrices() {
         }
     });
 }
-
+ 
+  
 // Trade Data Chart
 function initializeTradeChart() {
     const ctx = document.getElementById('tradeChart');
@@ -821,26 +822,56 @@ if (searchInput) {
       });
     }
 
-// Auto-scroll summary cards on mobile
-function autoScrollSummaryStrip() {
-    const strip = document.querySelector('.summary-strip-scroll');
-    if (!strip || window.innerWidth > 576) return;
-
-    // Clone and append the contents for seamless loop
-    strip.innerHTML += strip.innerHTML;
-
-    let scrollPos = 0;
-
-    function animateScroll() {
-        scrollPos += 1;
-        if (scrollPos >= strip.scrollWidth / 2) {
-            scrollPos = 0; // Reset halfway (original content length)
+    function autoScrollSummaryStrip() {
+        const strip = document.querySelector('.summary-strip-scroll');
+        if (!strip || window.innerWidth > 576) return;
+    
+        // Clone only the child nodes
+        const children = Array.from(strip.children);
+        children.forEach(child => {
+            const clone = child.cloneNode(true);
+            strip.appendChild(clone);
+        });
+    
+        let scrollPos = 0;
+    
+        function animateScroll() {
+            scrollPos += 1;
+            if (scrollPos >= strip.scrollWidth / 2) {
+                scrollPos = 0;
+            }
+            strip.scrollLeft = scrollPos;
+            requestAnimationFrame(animateScroll);
         }
-        strip.scrollLeft = scrollPos;
-        requestAnimationFrame(animateScroll);
+    
+        animateScroll();
     }
+    
+    document.addEventListener('DOMContentLoaded', autoScrollSummaryStrip);
+    
+    // Add JavaScript for auto-scrolling market cards
+    document.addEventListener('DOMContentLoaded', function () {
+        const summaryStrip = document.querySelector('.summary-strip-scroll');
+        if (summaryStrip) {
+            // Duplicate the content to create a continuous loop effect
+            const content = summaryStrip.innerHTML;
+            summaryStrip.innerHTML += content;
 
-    animateScroll();
-}
+            let scrollAmount = 0;
+            const scrollSpeed = 0.5; // Adjust speed as needed
 
-document.addEventListener('DOMContentLoaded', autoScrollSummaryStrip);
+            function autoScroll() {
+                scrollAmount += scrollSpeed;
+                if (scrollAmount >= summaryStrip.scrollWidth / 2) {
+                    // Reset scroll position to the beginning of the duplicated content
+                    scrollAmount = 0; // Or a small offset to avoid a jump
+                }
+                summaryStrip.scrollLeft = scrollAmount;
+                requestAnimationFrame(autoScroll);
+            }
+
+            // Start scrolling after a brief delay
+            setTimeout(autoScroll, 1000);
+        }
+    });
+    
