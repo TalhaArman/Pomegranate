@@ -1066,6 +1066,11 @@ footer {
         border: 1px solid transparent;
     }
 
+    /* Hide Email Subscribe Bar on Mobile */
+    .subscribe-bar {
+        display: none !important;
+    }
+
     /* Email Subscribe Bar Mobile Adjustments */
     .subscribe-bar .container-lg {
         flex-direction: column; /* Stack elements vertically */
@@ -1086,6 +1091,7 @@ footer {
 
     .subscribe-bar .form-control {
         flex-grow: 1; /* Allow input to grow */
+        margin-right: 0.5rem; /* Add space between input and button */
     }
 
    
@@ -1183,6 +1189,10 @@ footer {
     }
     button#regionDropdownMobile {
         margin-right: 1.5rem;
+    }
+    .subscribe-bar .form-control {
+        flex-grow: 1; /* Allow input to grow */
+        margin-right: 0.5rem; /* Add space between input and button */
     }
 }
 
