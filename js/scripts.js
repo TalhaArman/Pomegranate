@@ -331,7 +331,7 @@ function initializeTradeChart() {
                     },
                     ticks: {
                         callback: function(value) {
-                            return '$' + value + 'M';
+                            return '$' + value.toLocaleString() + 'M';
                             },
                             font: {
                                 size: isMobile ? 10 : 12
@@ -359,7 +359,7 @@ function initializeTradeChart() {
                 tooltip: {
                     callbacks: {
                         label: function(context) {
-                            return context.dataset.label + ': $' + context.raw + 'M';
+                            return context.dataset.label + ': $' + context.raw.toLocaleString() + 'M';
                         }
                     }
                 }
@@ -815,11 +815,45 @@ if (searchInput) {
     if (subscribeForm) {
       subscribeForm.addEventListener('submit', function(e) {
         e.preventDefault();
-        document.getElementById('subscribeSuccess').classList.remove('d-none');
-        subscribeForm.querySelector('button[type="submit"]').disabled = true;
-        subscribeForm.querySelector('input[type="email"]').disabled = true;
+        // Hide the current modal
+        const subscribeModal = bootstrap.Modal.getInstance(document.getElementById('subscribeModal'));
+        if (subscribeModal) {
+            subscribeModal.hide();
+        }
+        // Show the thank you modal
+        const thankYouModal = new bootstrap.Modal(document.getElementById('thankYouModal'));
+        thankYouModal.show();
+
         // Optionally, send the email to a backend here
       });
+    }
+
+    // Handle header subscribe form submission
+    const headerSubscribeForm = document.getElementById('headerSubscribeForm');
+    if (headerSubscribeForm) {
+        headerSubscribeForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Hide the header form elements (optional, but good UX)
+            const subscribeButton = headerSubscribeForm.querySelector('button[type="submit"]');
+            const emailInput = headerSubscribeForm.querySelector('input[type="email"]');
+            const successMessage = document.getElementById('headerSubscribeSuccess');
+
+            // Disable elements and show a temporary inline message if needed before modal
+            // successMessage.classList.remove('d-none'); // Could show a brief inline message first
+            // subscribeButton.disabled = true;
+            // emailInput.disabled = true;
+
+            // In this case, just trigger the modal immediately:
+
+            // Show the thank you modal
+            const thankYouModal = new bootstrap.Modal(document.getElementById('thankYouModal'));
+            thankYouModal.show();
+
+            // Optionally, send the email to a backend here
+            // After successful backend submission, you might want to clear the input field:
+            // emailInput.value = '';
+
+        });
     }
 
     function autoScrollSummaryStrip() {
