@@ -23,7 +23,7 @@
     --light-bg: #f4f8f2;
     --card-bg: #ffffff;
     --border-radius: 8px;
-    --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --box-shadow: 0;
     --font-family: 'Uber Move', sans-serif;
 }
 
@@ -82,7 +82,7 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: var(--border-radius);
     background-color: var(--primary-color);
     color: white;
-    border: none;
+    border: none !important;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -193,10 +193,10 @@ input.form-control.search-input {
 button.btn.search-btn {
     background: black !important;
 }
-button,.input-group{
+button, .input-group{
     border-radius: var(--border-radius) !important;
     box-shadow: var(--box-shadow) !important;
-    border: none !important;
+    border: 1px solid #e0e0e0 !important;
     height: 100% !important;
     background-color: var(--card-bg) !important;
     transition: transform 0.2s, box-shadow 0.3s !important;
@@ -1058,6 +1058,7 @@ footer {
     #trade-data-section .table,
     #market-price-section .table {
         border-collapse: collapse; /* Collapse borders to avoid double borders */
+        border: none !important; /* Remove border from the table itself on mobile */
     }
     #trade-data-section .table tbody td,
     #market-price-section .table tbody td {
