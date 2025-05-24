@@ -113,9 +113,10 @@
     <section class="subscribe-bar bg-dark text-white py-2">
         <div class="container-lg d-flex justify-content-center align-items-center">
             <p class="mb-0 me-3">Subscribe for email updates:</p>
-            <form class="d-flex subscribe-form">
-                <input type="email" class="form-control me-2" placeholder="Enter your email" aria-label="Enter your email">
+            <form class="d-flex subscribe-form" id="headerSubscribeForm">
+                <input type="email" class="form-control me-2" placeholder="Enter your email" aria-label="Enter your email" required>
                 <button type="submit" class="btn btn-primary">Subscribe</button>
+                <span id="headerSubscribeSuccess" class="text-success ms-2 d-none">Subscribed!</span>
             </form>
         </div>
     </section>
@@ -155,6 +156,23 @@
         </div>
       </div>
     </div>
+
+    <!-- Thank You Modal -->
+    <div class="modal fade" id="thankYouModal" tabindex="-1" aria-labelledby="thankYouModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="thankYouModalLabel">Thank You For Subscribing!</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+              <p>Your email has been added to our subscription list.</p>
+              <p>Stay tuned for the latest updates from Pomegranate Trade Dashboard.</p>
+              <button type="button" class="btn btn-dark mt-3" data-bs-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
 
     <!-- Main Content -->
     <div class="container-lg main-content-container mt-3">
@@ -243,23 +261,37 @@
                             <div class="exporter-item d-flex align-items-center mb-2">
                                 <span class="country-name">Peru</span>
                                 <div class="progress ms-2 flex-grow-1">
-                                    <div class="progress-bar" role="progressbar" style="width: 100%"></div>
+                                    <div class="progress-bar" role="progressbar" style="width: 45%"></div>
                                 </div>
-                                <span class="percentage ms-2">100%</span>
+                                <span class="percentage ms-2">45%</span>
                             </div>
                             <div class="exporter-item d-flex align-items-center mb-2">
-                                <span class="country-name">SYD</span>
+                                <span class="country-name">Spain</span>
                                 <div class="progress ms-2 flex-grow-1">
-                                    <div class="progress-bar" role="progressbar" style="width: 0%"></div>
+                                    <div class="progress-bar" role="progressbar" style="width: 28%"></div>
                                 </div>
-                                <span class="percentage ms-2">0%</span>
+                                <span class="percentage ms-2">28%</span>
                             </div>
                             <div class="exporter-item d-flex align-items-center">
-                                <span class="country-name">UAE</span>
+                                <span class="country-name">South Africa</span>
                                 <div class="progress ms-2 flex-grow-1">
-                                    <div class="progress-bar" role="progressbar" style="width: 0%"></div>
+                                    <div class="progress-bar" role="progressbar" style="width: 15%"></div>
                                 </div>
-                                <span class="percentage ms-2">0%</span>
+                                <span class="percentage ms-2">15%</span>
+                            </div>
+                             <div class="exporter-item d-flex align-items-center mb-2">
+                                <span class="country-name">USA</span>
+                                <div class="progress ms-2 flex-grow-1">
+                                    <div class="progress-bar" role="progressbar" style="width: 8%"></div>
+                                </div>
+                                <span class="percentage ms-2">8%</span>
+                            </div>
+                             <div class="exporter-item d-flex align-items-center">
+                                <span class="country-name">Turkey</span>
+                                <div class="progress ms-2 flex-grow-1">
+                                    <div class="progress-bar" role="progressbar" style="width: 4%"></div>
+                                </div>
+                                <span class="percentage ms-2">4%</span>
                             </div>
                         </div>
                     </div>
@@ -271,25 +303,39 @@
                         <div class="card-body">
                             <h5 class="card-title">Top Importers</h5>
                             <div class="exporter-item d-flex align-items-center mb-2">
-                                <span class="country-name">Peru</span>
+                                <span class="country-name">USA</span>
                                 <div class="progress ms-2 flex-grow-1">
-                                    <div class="progress-bar" role="progressbar" style="width: 100%"></div>
+                                    <div class="progress-bar" role="progressbar" style="width: 38%"></div>
                                 </div>
-                                <span class="percentage ms-2">100%</span>
+                                <span class="percentage ms-2">38%</span>
                             </div>
                             <div class="exporter-item d-flex align-items-center mb-2">
-                                <span class="country-name">SYD</span>
-                                <div class="progress ms-2 flex-grow-1">
-                                    <div class="progress-bar" role="progressbar" style="width: 0%"></div>
-                                </div>
-                                <span class="percentage ms-2">0%</span>
-                            </div>
-                            <div class="exporter-item d-flex align-items-center">
                                 <span class="country-name">UAE</span>
                                 <div class="progress ms-2 flex-grow-1">
-                                    <div class="progress-bar" role="progressbar" style="width: 0%"></div>
+                                    <div class="progress-bar" role="progressbar" style="width: 30%"></div>
                                 </div>
-                                <span class="percentage ms-2">0%</span>
+                                <span class="percentage ms-2">30%</span>
+                            </div>
+                            <div class="exporter-item d-flex align-items-center">
+                                <span class="country-name">Spain</span>
+                                <div class="progress ms-2 flex-grow-1">
+                                    <div class="progress-bar" role="progressbar" style="width: 20%"></div>
+                                </div>
+                                <span class="percentage ms-2">20%</span>
+                            </div>
+                             <div class="exporter-item d-flex align-items-center mb-2">
+                                <span class="country-name">Turkey</span>
+                                <div class="progress ms-2 flex-grow-1">
+                                    <div class="progress-bar" role="progressbar" style="width: 7%"></div>
+                                </div>
+                                <span class="percentage ms-2">7%</span>
+                            </div>
+                             <div class="exporter-item d-flex align-items-center">
+                                <span class="country-name">South Africa</span>
+                                <div class="progress ms-2 flex-grow-1">
+                                    <div class="progress-bar" role="progressbar" style="width: 5%"></div>
+                                </div>
+                                <span class="percentage ms-2">5%</span>
                             </div>
                         </div>
                     </div>
@@ -358,16 +404,16 @@
                                 <span class="snapshot-value">USA</span>
                             </div>
                             <div class="snapshot-item d-flex justify-content-between mb-2">
-                                <span class="snapshot-label">Total Importer</span>
+                                <span class="snapshot-label">Total Export Volume</span>
                                 <span class="snapshot-value">12,345</span>
                             </div>
                             <div class="snapshot-item d-flex justify-content-between mb-2">
-                                <span class="snapshot-label">Total Exporter</span>
+                                <span class="snapshot-label">Total Import Volume</span>
                                 <span class="snapshot-value">12,345</span>
                             </div>
                             <div class="snapshot-item d-flex justify-content-between">
-                                <span class="snapshot-label">Total Exporter</span>
-                                <span class="snapshot-value">12,345</span>
+                                <span class="snapshot-label">Active Countries Tracked</span>
+                                <span class="snapshot-value">5</span>
                             </div>
                         </div>
                     </div>
