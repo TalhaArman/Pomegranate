@@ -194,10 +194,10 @@ function updateTradeData() {
             const importValue = Math.round(data.volumes[country] * 0.01);
             const marketValue = Math.round(data.volumes[country] * 100);
             
-            row.querySelector('td:nth-child(3)').textContent = `$${sharesValue}`;
-            row.querySelector('td:nth-child(4)').textContent = `$${overallValue}`;
-            row.querySelector('td:nth-child(5)').textContent = `$${importValue}`;
-            row.querySelector('td:nth-child(6)').textContent = `$${marketValue}`;
+            row.querySelector('td:nth-child(3)').textContent = `$${sharesValue.toLocaleString()}`;
+            row.querySelector('td:nth-child(4)').textContent = `$${overallValue.toLocaleString()}`;
+            row.querySelector('td:nth-child(5)').textContent = `$${importValue.toLocaleString()}`;
+            row.querySelector('td:nth-child(6)').textContent = `$${marketValue.toLocaleString()}`;
             
             // Update growth percentage
             const growthCell = row.querySelector('td:nth-child(7)');
@@ -230,7 +230,7 @@ function updateMarketPrices() {
             // Update price value
             const priceCell = row.querySelector('td:nth-child(3)');
             const price = data.values[country].toFixed(2);
-            priceCell.textContent = `$${price}`;
+            priceCell.textContent = `$${parseFloat(price).toLocaleString()}`;
             
             // Update last update date
             const dateCell = row.querySelector('td:nth-child(4)');
