@@ -74,8 +74,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .search-input {
-    border-radius: var(--border-radius);
-    border: 1px solid #e0e0e0 !important;
+
     background-color: #f8f8f8;
 }
 
@@ -84,6 +83,10 @@ h1, h2, h3, h4, h5, h6 {
     background-color: var(--primary-color);
     color: white;
     border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
 }
 
 .region-dropdown {
@@ -117,6 +120,13 @@ h1, h2, h3, h4, h5, h6 {
 
 .summary-strip-scroll::-webkit-scrollbar {
     display: none; /* Hide scrollbar for Chrome, Safari, and Opera */
+}
+
+@media (min-width: 992px) {
+    .summary-strip-scroll {
+        padding-left: 2rem; /* Match .container-lg padding */
+        padding-right: 2rem; /* Match .container-lg padding */
+    }
 }
 
 .summary-card {
@@ -573,6 +583,7 @@ footer {
         white-space: nowrap !important;
         overflow-y: hidden !important;
         scroll-behavior: auto !important;
+        padding-right: 1rem; /* Add padding to the right */
     }
     .summary-strip-scroll > .col-md-4,
     .summary-strip-scroll > .col-lg-2,
@@ -587,6 +598,7 @@ footer {
     .summary-card {
         min-width: 100%;
         box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        margin-right: 0.5rem; /* Add some space between cards */
     }
     #overview-section {
         background: #fafafa;
@@ -1042,6 +1054,14 @@ footer {
         box-shadow: 0 2px 8px rgba(0,0,0,0.04) !important;
         border-radius: var(--border-radius) !important;
         background: #fff !important;
+    }
+    #trade-data-section .table,
+    #market-price-section .table {
+        border-collapse: collapse; /* Collapse borders to avoid double borders */
+    }
+    #trade-data-section .table tbody td,
+    #market-price-section .table tbody td {
+        border-bottom: none !important; /* Remove bottom border on table cells */
     }
     #market-price-section .table {
         font-size: 0.85rem;
