@@ -38,10 +38,10 @@ document.addEventListener('DOMContentLoaded', function() {
     // Get all sections
     const sections = [
       document.querySelector('#overview-section'),
+      document.querySelector('#market-pulse-section'),
       document.querySelector('#trade-data-section'),
       document.querySelector('#market-price-section'),
       document.querySelector('#seasonality-section'),
-      document.querySelector('#market-pulse-section')
     ];
     
     // Find the current section based on scroll position
