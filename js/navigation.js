@@ -62,13 +62,17 @@ document.addEventListener('DOMContentLoaded', function() {
     // Find the current section based on scroll position
     let currentSectionIndex = 0;
     sections.forEach((section, index) => {
-      // Check if the scroll position is within the section bounds
+      // Check if the scroll position is within the section bounds, considering the sticky elements height
       if (section) {
-          const sectionTop = section.offsetTop - 100; // Add a small offset for better visibility check
-          const sectionBottom = sectionTop + section.offsetHeight;
+          const stickyHeight = 130; // Approximate combined height of sticky header and subscribe bar
+          const sectionTop = section.offsetTop - stickyHeight;
+          const sectionBottom = section.offsetTop + section.offsetHeight - stickyHeight;
 
-          if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
-            currentSectionIndex = index;
+          // Adjust condition for the last section or when near the bottom of the page
+          if (scrollPosition >= sectionTop) {
+              if (index === sections.length - 1 || scrollPosition < sectionBottom) {
+                currentSectionIndex = index;
+              }
           }
       }
     });
