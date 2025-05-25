@@ -113,8 +113,8 @@
     <section class="subscribe-bar bg-dark text-white py-2">
         <div class="container-lg d-flex justify-content-center align-items-center">
             <p class="mb-0 me-3">Subscribe for email updates:</p>
-            <form class="d-flex subscribe-form" id="headerSubscribeForm">
-                <input type="email" class="form-control me-2" placeholder="Enter your email" aria-label="Enter your email" required>
+            <form class="d-flex subscribe-form" id="headerSubscribeForm" action="https://docs.google.com/forms/d/e/1FAIpQLSekr6YuoBDbqdwlu8ak140-_jWP7egahskONUxi2dY2_l7Mfw/formResponse" method="POST">
+                <input type="email" class="form-control me-2" placeholder="Enter your email" aria-label="Enter your email" required name="emailAddress">
                 <button type="submit" class="btn btn-primary">Subscribe</button>
                 <span id="headerSubscribeSuccess" class="text-success ms-2 d-none">Subscribed!</span>
             </form>
@@ -142,10 +142,10 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <form id="subscribeForm">
+            <form id="subscribeForm" action="https://docs.google.com/forms/d/e/1FAIpQLSekr6YuoBDbqdwlu8ak140-_jWP7egahskONUxi2dY2_l7Mfw/formResponse" method="POST">
               <div class="mb-3">
                 <label for="subscribeEmail" class="form-label">Email address</label>
-                <input type="email" class="form-control" id="subscribeEmail" placeholder="name@example.com" required>
+                <input type="email" class="form-control" id="subscribeEmail" placeholder="name@example.com" required name="emailAddress">
               </div>
               <div id="subscribeSuccess" class="alert alert-success d-none" role="alert">
                 Thank you for subscribing!
