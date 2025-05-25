@@ -27,6 +27,10 @@
     --font-family: 'Uber Move', sans-serif;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: var(--font-family);
     background-color: var(--light-bg);
@@ -1173,6 +1177,15 @@ footer {
         flex: 1 1 0;
         align-items: center;
     }
+}
+
+/* Ensure sections are positioned correctly below sticky header */
+#overview-section,
+#market-pulse-section,
+#trade-data-section,
+#market-price-section,
+#seasonality-section {
+    scroll-margin-top: 150px; /* Further adjusted value based on estimated combined sticky height */
 }
 
 /* Headings and labels to black */
