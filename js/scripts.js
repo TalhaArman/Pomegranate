@@ -855,16 +855,40 @@ if (searchInput) {
     if (subscribeForm) {
       subscribeForm.addEventListener('submit', function(e) {
         e.preventDefault();
-        // Hide the current modal
-        const subscribeModal = bootstrap.Modal.getInstance(document.getElementById('subscribeModal'));
-        if (subscribeModal) {
-            subscribeModal.hide();
-        }
-        // Show the thank you modal
-        const thankYouModal = new bootstrap.Modal(document.getElementById('thankYouModal'));
-        thankYouModal.show();
 
-        // Optionally, send the email to a backend here
+        const emailInput = subscribeForm.querySelector('input[type="email"]');
+        const emailValue = emailInput.value;
+
+        // Create FormData object
+        const formData = new FormData();
+        formData.append('emailAddress', emailValue); // Use the correct name attribute from Google Form
+
+        // Send data to Google Form using fetch
+        fetch(subscribeForm.action, {
+            method: subscribeForm.method,
+            body: formData,
+            mode: 'no-cors' // Required for submitting to Google Forms this way
+        })
+        .then(response => {
+            // Handle response (Google Forms will return a redirect, no-cors mode prevents reading it)
+            console.log('Form submitted to Google Forms');
+            // Hide the current modal
+            const subscribeModal = bootstrap.Modal.getInstance(document.getElementById('subscribeModal'));
+            if (subscribeModal) {
+                subscribeModal.hide();
+            }
+            // Show the thank you modal
+            const thankYouModal = new bootstrap.Modal(document.getElementById('thankYouModal'));
+            thankYouModal.show();
+            // Clear the form after successful submission
+            subscribeForm.reset();
+
+        })
+        .catch(error => {
+            console.error('Error submitting to Google Forms:', error);
+            // Optionally show an error message to the user
+            alert('There was an error subscribing. Please try again later.');
+        });
       });
     }
 
@@ -873,26 +897,40 @@ if (searchInput) {
     if (headerSubscribeForm) {
         headerSubscribeForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            // Hide the header form elements (optional, but good UX)
-            const subscribeButton = headerSubscribeForm.querySelector('button[type="submit"]');
+
             const emailInput = headerSubscribeForm.querySelector('input[type="email"]');
-            const successMessage = document.getElementById('headerSubscribeSuccess');
+            const emailValue = emailInput.value;
 
-            // Disable elements and show a temporary inline message if needed before modal
-            // successMessage.classList.remove('d-none'); // Could show a brief inline message first
-            // subscribeButton.disabled = true;
-            // emailInput.disabled = true;
+            // Create FormData object
+            const formData = new FormData();
+            formData.append('emailAddress', emailValue); // Use the correct name attribute from Google Form
 
-            // In this case, just trigger the modal immediately:
+            // Send data to Google Form using fetch
+            fetch(headerSubscribeForm.action, {
+                method: headerSubscribeForm.method,
+                body: formData,
+                mode: 'no-cors' // Required for submitting to Google Forms this way
+            })
+            .then(response => {
+                 // Handle response (Google Forms will return a redirect, no-cors mode prevents reading it)
+                console.log('Form submitted to Google Forms');
+                // Show the thank you modal
+                const thankYouModal = new bootstrap.Modal(document.getElementById('thankYouModal'));
+                thankYouModal.show();
+                 // Clear the form after successful submission
+                headerSubscribeForm.reset();
+                 // Hide the inline success message if it was shown
+                const successMessage = document.getElementById('headerSubscribeSuccess');
+                 if (!successMessage.classList.contains('d-none')) {
+                     successMessage.classList.add('d-none');
+                 }
 
-            // Show the thank you modal
-            const thankYouModal = new bootstrap.Modal(document.getElementById('thankYouModal'));
-            thankYouModal.show();
-
-            // Optionally, send the email to a backend here
-            // After successful backend submission, you might want to clear the input field:
-            // emailInput.value = '';
-
+            })
+            .catch(error => {
+                console.error('Error submitting to Google Forms:', error);
+                // Optionally show an error message to the user
+                alert('There was an error subscribing. Please try again later.');
+            });
         });
     }
 
