@@ -3,6 +3,8 @@ document.addEventListener('DOMContentLoaded', function() {
   // Get all navigation links that point to section IDs
   const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
   
+  let isScrollingFromClick = false; // Flag to indicate scrolling initiated by a click
+
   // Add click event listener to each navigation link
   navLinks.forEach(link => {
     link.addEventListener('click', function(e) {
@@ -15,7 +17,10 @@ document.addEventListener('DOMContentLoaded', function() {
       // Make sure the target exists
       const targetSection = document.querySelector(targetId);
       if (targetSection) {
-        // Set active class on clicked link and remove from others
+
+        isScrollingFromClick = true; // Set flag
+
+        // Set active class on clicked link immediately
         navLinks.forEach(navLink => navLink.classList.remove('active'));
         this.classList.add('active');
         
@@ -25,6 +30,11 @@ document.addEventListener('DOMContentLoaded', function() {
           block: 'start'
         });
         
+        // Reset the flag after the scroll is likely finished (adjust time as needed)
+        setTimeout(() => {
+            isScrollingFromClick = false;
+        }, 800); // 800ms is usually longer than default smooth scroll
+
         // Update URL hash without jumping (optional)
         history.pushState(null, null, targetId);
       }
@@ -33,6 +43,11 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // Handle initial active state based on scroll position
   function setActiveNavOnScroll() {
+    // If scrolling was initiated by a click, ignore this scroll event
+    if (isScrollingFromClick) {
+        return;
+    }
+
     const scrollPosition = window.scrollY;
     
     // Get all sections
@@ -47,8 +62,14 @@ document.addEventListener('DOMContentLoaded', function() {
     // Find the current section based on scroll position
     let currentSectionIndex = 0;
     sections.forEach((section, index) => {
-      if (section && scrollPosition >= section.offsetTop - 50) {
-        currentSectionIndex = index;
+      // Check if the scroll position is within the section bounds
+      if (section) {
+          const sectionTop = section.offsetTop - 100; // Add a small offset for better visibility check
+          const sectionBottom = sectionTop + section.offsetHeight;
+
+          if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+            currentSectionIndex = index;
+          }
       }
     });
     
