@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Find the current section based on scroll position
     let currentSectionIndex = 0;
     sections.forEach((section, index) => {
-      if (section && scrollPosition >= section.offsetTop - 100) {
+      if (section && scrollPosition >= section.offsetTop - 50) {
         currentSectionIndex = index;
       }
     });
